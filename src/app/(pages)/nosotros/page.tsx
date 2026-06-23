@@ -2,56 +2,56 @@ export default function Nosotros() {
   return (
     <>
       {/* Header */}
-      <section className="bg-primary-800 text-white py-16">
+      <section className="bg-gradient-to-r from-primary to-primary/90 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Nosotros</h1>
-          <p className="text-lg text-gray-200">Conoce la historia y valores de Constructora PDS</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-text-inverse">Nosotros</h1>
+          <p className="text-lg text-text-inverse_secondary">Expertos en desarrollo inmobiliario con más de 15 años de trayectoria</p>
         </div>
       </section>
 
       {/* Historia */}
-      <section className="py-section">
+      <section className="py-section bg-background-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-4 text-primary-800">Nuestra Historia</h2>
-              <p className="text-gray-600 mb-4">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              <h2 className="text-3xl font-bold mb-4 text-text-title">Nuestra Historia</h2>
+              <p className="text-text-base mb-4">
+                Constructora PDS es una empresa consolidada en el sector inmobiliario, fundada por profesionales con más de 15 años de experiencia en el desarrollo de proyectos residenciales. Nuestro equipo posee una sólida trayectoria en gerencia general, evaluación de proyectos y gestión comercial.
               </p>
-              <p className="text-gray-600">
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              <p className="text-text-base">
+                Nos especializamos en la creación de proyectos residenciales que combinan conectividad, tranquilidad y acceso conveniente a todo lo necesario en la vida diaria. Cada proyecto refleja nuestro compromiso con la calidad, la innovación y la satisfacción de nuestros clientes.
               </p>
             </div>
-            <div className="bg-primary-200 h-96 rounded-lg flex items-center justify-center">
-              <span className="text-gray-500">Imagen Corporativa</span>
+            <div className="bg-primary/10 h-96 rounded-card flex items-center justify-center border border-border">
+              <span className="text-text-light">Imagen Corporativa</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Misión, Visión, Valores */}
-      <section className="py-section bg-gray-50">
+      <section className="py-section bg-background-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4 text-primary-800">Misión</h3>
-              <p className="text-gray-600">
-                Desarrollar proyectos inmobiliarios de excelencia, comprometidos con la calidad, sostenibilidad y satisfacción del cliente.
+            <div className="bg-background-surface p-8 rounded-card border border-border">
+              <h3 className="text-2xl font-bold mb-4 text-text-title">Misión</h3>
+              <p className="text-text-base">
+                Desarrollar proyectos inmobiliarios de excelencia que combinen innovación, calidad y conectividad, creando espacios donde las personas puedan disfrutar de la tranquilidad y acceso a todo lo necesario en sus vidas.
               </p>
             </div>
-            <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4 text-primary-800">Visión</h3>
-              <p className="text-gray-600">
-                Ser la constructora líder en innovación, confiabilidad y excelencia en la construcción de espacios que mejoran la calidad de vida.
+            <div className="bg-background-surface p-8 rounded-card border border-border">
+              <h3 className="text-2xl font-bold mb-4 text-text-title">Visión</h3>
+              <p className="text-text-base">
+                Ser la constructora líder en proyectos residenciales, reconocida por nuestra excelencia, profesionalismo y compromiso con la satisfacción del cliente. Aspiramos a transformar la forma en que las personas habitan sus espacios.
               </p>
             </div>
-            <div className="bg-white p-8 rounded-lg border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4 text-primary-800">Valores</h3>
-              <ul className="text-gray-600 space-y-2">
-                <li>✓ Compromiso</li>
-                <li>✓ Calidad</li>
-                <li>✓ Confianza</li>
-                <li>✓ Profesionalismo</li>
+            <div className="bg-background-surface p-8 rounded-card border border-border">
+              <h3 className="text-2xl font-bold mb-4 text-text-title">Valores</h3>
+              <ul className="text-text-base space-y-2">
+                <li className="flex gap-2"><span className="text-accent">✓</span> Compromiso profesional</li>
+                <li className="flex gap-2"><span className="text-accent">✓</span> Calidad en ejecución</li>
+                <li className="flex gap-2"><span className="text-accent">✓</span> Confianza y transparencia</li>
+                <li className="flex gap-2"><span className="text-accent">✓</span> Innovación continua</li>
               </ul>
             </div>
           </div>
@@ -59,25 +59,24 @@ export default function Nosotros() {
       </section>
 
       {/* Experiencia */}
-      <section className="py-section">
+      <section className="py-section bg-background-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold mb-12 text-center text-primary-800">Experiencia</h2>
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-accent-500 mb-2">20+</div>
-              <p className="text-gray-600">Años de Experiencia</p>
+          <h2 className="text-3xl font-bold mb-12 text-center text-text-title">Experiencia y Trayectoria</h2>
+          <div className="grid md:grid-cols-3 gap-8 text-center">
+            <div className="bg-background-alt p-8 rounded-card border border-border">
+              <div className="text-4xl font-bold text-accent mb-2">15+</div>
+              <p className="text-text-base font-semibold">Años en Industria Inmobiliaria</p>
+              <p className="text-text-secondary mt-2">Experiencia consolidada y probada</p>
             </div>
-            <div>
-              <div className="text-4xl font-bold text-accent-500 mb-2">150+</div>
-              <p className="text-gray-600">Proyectos Completados</p>
+            <div className="bg-background-alt p-8 rounded-card border border-border">
+              <div className="text-4xl font-bold text-accent mb-2">2</div>
+              <p className="text-text-base font-semibold">Proyectos Emblemáticos</p>
+              <p className="text-text-secondary mt-2">NeoBrisas y NeoYungay en desarrollo</p>
             </div>
-            <div>
-              <div className="text-4xl font-bold text-accent-500 mb-2">500+</div>
-              <p className="text-gray-600">Clientes Satisfechos</p>
-            </div>
-            <div>
-              <div className="text-4xl font-bold text-accent-500 mb-2">50+</div>
-              <p className="text-gray-600">Profesionales</p>
+            <div className="bg-background-alt p-8 rounded-card border border-border">
+              <div className="text-4xl font-bold text-accent mb-2">+200</div>
+              <p className="text-text-base font-semibold">Departamentos en Oferta</p>
+              <p className="text-text-secondary mt-2">Opciones residenciales de calidad</p>
             </div>
           </div>
         </div>

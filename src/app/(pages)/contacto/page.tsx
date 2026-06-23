@@ -33,118 +33,129 @@ export default function Contacto() {
   return (
     <>
       {/* Header */}
-      <section className="bg-primary-800 text-white py-16">
+      <section className="bg-gradient-to-r from-primary to-primary/90 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Contacto</h1>
-          <p className="text-lg text-gray-200">Estamos aquí para ayudarte. Contacta con nosotros</p>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-text-inverse">Contacto</h1>
+          <p className="text-lg text-text-inverse_secondary">Estamos aquí para ayudarte. Cuéntanos sobre tu proyecto</p>
         </div>
       </section>
 
       {/* Contenido */}
-      <section className="py-section">
+      <section className="py-section bg-background-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-12">
             {/* Información de contacto */}
             <div>
-              <h2 className="text-2xl font-bold mb-6 text-primary-800">Información de Contacto</h2>
+              <h2 className="text-2xl font-bold mb-6 text-text-title">Información de Contacto</h2>
               <div className="space-y-6">
-                <div>
-                  <h3 className="font-bold text-primary-800 mb-2">Teléfono</h3>
-                  <a href="tel:+56912345678" className="text-accent-600 hover:text-accent-700">
-                    +56 9 1234 5678
+                <div className="bg-background-surface p-4 rounded-card border border-border">
+                  <h3 className="font-bold text-text-title mb-2">📞 Teléfono</h3>
+                  <a href="tel:+56979877883" className="text-accent hover:text-accent-hover font-semibold">
+                    +56 9 7987 7883
                   </a>
                 </div>
-                <div>
-                  <h3 className="font-bold text-primary-800 mb-2">Email</h3>
-                  <a href="mailto:contacto@pds.cl" className="text-accent-600 hover:text-accent-700">
-                    contacto@pds.cl
+                <div className="bg-background-surface p-4 rounded-card border border-border">
+                  <h3 className="font-bold text-text-title mb-2">📧 Email</h3>
+                  <a href="mailto:brabanales@rcap.cl" className="text-accent hover:text-accent-hover font-semibold break-all">
+                    brabanales@rcap.cl
                   </a>
                 </div>
-                <div>
-                  <h3 className="font-bold text-primary-800 mb-2">Dirección</h3>
-                  <p className="text-gray-600">Calle Principal 123<br />Ciudad, Región</p>
+                <div className="bg-background-surface p-4 rounded-card border border-border">
+                  <h3 className="font-bold text-text-title mb-2">📍 Ubicación</h3>
+                  <p className="text-text-base">
+                    Región Metropolitana<br />
+                    Santiago, Chile
+                  </p>
                 </div>
-                <div>
-                  <h3 className="font-bold text-primary-800 mb-2">Horario Atención</h3>
-                  <p className="text-gray-600">Lunes - Viernes: 9:00 - 18:00<br />Sábado: 10:00 - 14:00</p>
+                <div className="bg-background-surface p-4 rounded-card border border-border">
+                  <h3 className="font-bold text-text-title mb-2">🕐 Horario</h3>
+                  <p className="text-text-base">
+                    Lunes - Viernes: 9:00 - 18:00<br />
+                    <span className="text-text-secondary">Sábado: 10:00 - 14:00</span>
+                  </p>
                 </div>
               </div>
             </div>
 
             {/* Formulario */}
             <div className="md:col-span-2">
-              <h2 className="text-2xl font-bold mb-6 text-primary-800">Envíanos un Mensaje</h2>
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-4">
+              <div className="bg-background-surface p-8 rounded-card border border-border shadow-card">
+                <h2 className="text-2xl font-bold mb-6 text-text-title">Envíanos un Mensaje</h2>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Tu Nombre"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="px-4 py-3 border border-border rounded-button bg-background-surface text-text-title placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="Tu Email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="px-4 py-3 border border-border rounded-button bg-background-surface text-text-title placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-primary"
+                    />
+                  </div>
+                  <input
+                    type="tel"
+                    name="phone"
+                    placeholder="Teléfono (Opcional)"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 border border-border rounded-button bg-background-surface text-text-title placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-primary"
+                  />
                   <input
                     type="text"
-                    name="name"
-                    placeholder="Tu Nombre"
-                    value={formData.name}
+                    name="subject"
+                    placeholder="Asunto"
+                    value={formData.subject}
                     onChange={handleChange}
                     required
-                    className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500"
+                    className="w-full px-4 py-3 border border-border rounded-button bg-background-surface text-text-title placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-primary"
                   />
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Tu Email"
-                    value={formData.email}
+                  <textarea
+                    name="message"
+                    placeholder="Tu Mensaje"
+                    value={formData.message}
                     onChange={handleChange}
                     required
-                    className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500"
+                    rows={6}
+                    className="w-full px-4 py-3 border border-border rounded-button bg-background-surface text-text-title placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-primary resize-none"
                   />
-                </div>
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Teléfono (Opcional)"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500"
-                />
-                <input
-                  type="text"
-                  name="subject"
-                  placeholder="Asunto"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500"
-                />
-                <textarea
-                  name="message"
-                  placeholder="Tu Mensaje"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-accent-500"
-                />
-                <button
-                  type="submit"
-                  className="w-full bg-primary-800 hover:bg-primary-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
-                >
-                  Enviar Mensaje
-                </button>
-              </form>
+                  <button
+                    type="submit"
+                    className="w-full bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-button font-semibold transition-colors"
+                  >
+                    Enviar Mensaje
+                  </button>
+                </form>
 
-              {submitted && (
-                <div className="mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
-                  ✓ Mensaje enviado correctamente. Nos pondremos en contacto pronto.
-                </div>
-              )}
+                {submitted && (
+                  <div className="mt-4 p-4 bg-green-50 border border-green-200 text-green-700 rounded-button">
+                    ✓ Mensaje enviado correctamente. Nos pondremos en contacto pronto.
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mapa (Placeholder) */}
-      <section className="py-section bg-gray-50">
+      {/* Ubicación */}
+      <section className="py-section bg-background-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold mb-6 text-center text-primary-800">Ubicación</h2>
-          <div className="bg-primary-200 h-96 rounded-lg flex items-center justify-center">
-            <span className="text-gray-500">Mapa de Ubicación (Placeholder)</span>
+          <h2 className="text-2xl font-bold mb-6 text-center text-text-title">Ubicación</h2>
+          <div className="bg-primary/10 h-96 rounded-card flex items-center justify-center border border-border">
+            <div className="text-center">
+              <p className="text-text-light text-lg mb-2">Región Metropolitana, Santiago</p>
+              <p className="text-text-secondary">Mapa de ubicación (Placeholder)</p>
+            </div>
           </div>
         </div>
       </section>
