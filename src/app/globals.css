@@ -1,11 +1,48 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+@theme {
+  /* === Colores Corporativos === */
+  --color-primary: #1F3A5F;
+  --color-primary-hover: #162B47;
+  --color-primary-active: #122238;
+  --color-primary-light: #EEF4FB;
+
+  --color-accent: #C58B39;
+  --color-accent-hover: #A9742E;
+
+  /* === Textos === */
+  --color-text-title: #1B1F24;
+  --color-text-subtitle: #243244;
+  --color-text-base: #4B5563;
+  --color-text-secondary: #6B7280;
+  --color-text-light: #9CA3AF;
+  --color-text-inverse: #F9FAFB;
+  --color-text-inverse_secondary: #D1D5DB;
+
+  /* === Fondos === */
+  --color-background-default: #F7F8FA;
+  --color-background-surface: #FFFFFF;
+  --color-background-alt: #F3F4F6;
+  --color-background-footer: #111827;
+
+  /* === Bordes === */
+  --color-border: #E5E7EB;
+  --color-border-secondary: #D1D5DB;
+
+  /* === Radios === */
+  --radius-button: 10px;
+  --radius-card: 14px;
+
+  /* === Sombras === */
+  --shadow-card: 0 10px 30px rgba(15, 23, 42, 0.06);
+  --shadow-focus: 0 0 0 4px rgba(31, 58, 95, 0.12);
+
+  /* === Tipografía === */
+  --font-sans: var(--font-inter), system-ui, -apple-system, sans-serif;
+
+  /* === Espaciado custom === */
+  --spacing-nav-height: 4rem;
+  --spacing-section: 6rem;
 }
 
 html {
@@ -13,19 +50,14 @@ html {
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
-  color: #0f172a;
-  background-color: #ffffff;
+  font-family: var(--font-sans);
+  color: var(--color-text-title);
+  background-color: var(--color-background-default);
 }
 
 /* Estilos base */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 700;
   line-height: 1.2;
-}
-
-p {
-  line-height: 1.6;
 }
 
 a {
