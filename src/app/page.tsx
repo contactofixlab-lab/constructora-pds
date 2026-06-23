@@ -4,42 +4,42 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-primary-800 to-primary-600 text-white py-20 md:py-32">
+      <section className="bg-gradient-to-r from-primary to-primary/90 text-white py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-text-inverse">
                 Construyendo Sueños, Entregando Calidad
               </h1>
-              <p className="text-lg text-gray-200 mb-8">
+              <p className="text-lg text-text-inverse_secondary mb-8">
                 En Constructora PDS, combinamos experiencia, profesionalismo y compromiso para desarrollar proyectos inmobiliarios de excelencia.
               </p>
               <div className="flex gap-4 flex-wrap">
                 <Link
                   href="/proyectos"
-                  className="bg-accent-500 hover:bg-accent-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                  className="bg-accent hover:bg-accent-hover text-white px-6 py-3 rounded-button font-semibold transition-colors"
                 >
                   Ver Proyectos
                 </Link>
                 <Link
                   href="/contacto"
-                  className="bg-white hover:bg-gray-100 text-primary-800 px-6 py-3 rounded-lg font-semibold transition-colors"
+                  className="bg-white hover:bg-background-alt text-primary px-6 py-3 rounded-button font-semibold transition-colors"
                 >
                   Contactar
                 </Link>
               </div>
             </div>
-            <div className="bg-primary-700 h-64 md:h-96 rounded-lg flex items-center justify-center">
-              <span className="text-gray-400">Imagen Hero (Placeholder)</span>
+            <div className="bg-primary/20 h-64 md:h-96 rounded-card flex items-center justify-center border border-white/10">
+              <span className="text-white/40">Imagen Hero (Placeholder)</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Servicios Section */}
-      <section className="py-section">
+      <section className="py-section bg-background-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary-800">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-text-title">
             Nuestros Servicios
           </h2>
           <div className="grid md:grid-cols-3 gap-8">
@@ -50,11 +50,11 @@ export default function Home() {
             ].map((service, i) => (
               <div
                 key={i}
-                className="bg-gray-50 p-8 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow"
+                className="bg-background-surface p-8 rounded-card border border-border hover:shadow-card transition-shadow"
               >
                 <div className="text-4xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-bold mb-2 text-primary-800">{service.title}</h3>
-                <p className="text-gray-600">
+                <h3 className="text-xl font-bold mb-2 text-text-title">{service.title}</h3>
+                <p className="text-text-base">
                   Experiencia en todos los tipos de proyectos inmobiliarios.
                 </p>
               </div>
@@ -64,26 +64,26 @@ export default function Home() {
       </section>
 
       {/* Proyectos Destacados */}
-      <section className="py-section bg-gray-50">
+      <section className="py-section bg-background-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary-800">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-text-title">
             Proyectos Destacados
           </h2>
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             {[1, 2, 3].map((i) => (
               <div
                 key={i}
-                className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow"
+                className="bg-background-surface rounded-card overflow-hidden shadow-card hover:shadow-lg transition-shadow"
               >
-                <div className="bg-primary-300 h-48 flex items-center justify-center">
-                  <span className="text-gray-500">Imagen Proyecto</span>
+                <div className="bg-primary/10 h-48 flex items-center justify-center">
+                  <span className="text-text-light">Imagen Proyecto</span>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-primary-800 mb-2">Proyecto {i}</h3>
-                  <p className="text-gray-600 text-sm mb-4">
+                  <h3 className="text-xl font-bold text-text-title mb-2">Proyecto {i}</h3>
+                  <p className="text-text-base text-sm mb-4">
                     Descripción breve del proyecto inmobiliario.
                   </p>
-                  <Link href="/proyectos" className="text-accent-500 font-semibold hover:text-accent-600">
+                  <Link href="/proyectos" className="text-accent hover:text-accent-hover font-semibold transition-colors">
                     Ver Detalles →
                   </Link>
                 </div>
@@ -93,7 +93,7 @@ export default function Home() {
           <div className="text-center">
             <Link
               href="/proyectos"
-              className="inline-block bg-primary-800 hover:bg-primary-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors"
+              className="inline-block bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-button font-semibold transition-colors"
             >
               Ver Todos los Proyectos
             </Link>
@@ -102,38 +102,38 @@ export default function Home() {
       </section>
 
       {/* Por qué elegirnos */}
-      <section className="py-section">
+      <section className="py-section bg-background-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-primary-800">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-text-title">
             Por Qué Elegirnos
           </h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div className="flex gap-4">
-              <div className="text-accent-500 text-3xl flex-shrink-0">✓</div>
+              <div className="text-accent text-3xl flex-shrink-0">✓</div>
               <div>
-                <h3 className="font-bold text-lg mb-2 text-primary-800">Experiencia Comprobada</h3>
-                <p className="text-gray-600">Años de trayectoria en proyectos de diversa envergadura.</p>
+                <h3 className="font-bold text-lg mb-2 text-text-title">Experiencia Comprobada</h3>
+                <p className="text-text-base">Años de trayectoria en proyectos de diversa envergadura.</p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="text-accent-500 text-3xl flex-shrink-0">✓</div>
+              <div className="text-accent text-3xl flex-shrink-0">✓</div>
               <div>
-                <h3 className="font-bold text-lg mb-2 text-primary-800">Calidad Garantizada</h3>
-                <p className="text-gray-600">Procesos rigurosos de control y supervisión.</p>
+                <h3 className="font-bold text-lg mb-2 text-text-title">Calidad Garantizada</h3>
+                <p className="text-text-base">Procesos rigurosos de control y supervisión.</p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="text-accent-500 text-3xl flex-shrink-0">✓</div>
+              <div className="text-accent text-3xl flex-shrink-0">✓</div>
               <div>
-                <h3 className="font-bold text-lg mb-2 text-primary-800">Cumplimiento de Plazos</h3>
-                <p className="text-gray-600">Compromiso con entregas puntuales y sin sorpresas.</p>
+                <h3 className="font-bold text-lg mb-2 text-text-title">Cumplimiento de Plazos</h3>
+                <p className="text-text-base">Compromiso con entregas puntuales y sin sorpresas.</p>
               </div>
             </div>
             <div className="flex gap-4">
-              <div className="text-accent-500 text-3xl flex-shrink-0">✓</div>
+              <div className="text-accent text-3xl flex-shrink-0">✓</div>
               <div>
-                <h3 className="font-bold text-lg mb-2 text-primary-800">Atención Personalizada</h3>
-                <p className="text-gray-600">Equipo dedicado a satisfacer tus necesidades.</p>
+                <h3 className="font-bold text-lg mb-2 text-text-title">Atención Personalizada</h3>
+                <p className="text-text-base">Equipo dedicado a satisfacer tus necesidades.</p>
               </div>
             </div>
           </div>
@@ -141,15 +141,15 @@ export default function Home() {
       </section>
 
       {/* CTA Final */}
-      <section className="bg-gradient-to-r from-primary-800 to-primary-600 text-white py-12">
+      <section className="bg-gradient-to-r from-primary to-primary/90 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">¿Listo para Comenzar tu Proyecto?</h2>
-          <p className="text-lg mb-8 text-gray-200">
+          <h2 className="text-3xl font-bold mb-4 text-text-inverse">¿Listo para Comenzar tu Proyecto?</h2>
+          <p className="text-lg mb-8 text-text-inverse_secondary">
             Contacta con nuestro equipo y déjanos ayudarte a hacer realidad tu visión.
           </p>
           <Link
             href="/contacto"
-            className="inline-block bg-accent-500 hover:bg-accent-600 text-white px-8 py-4 rounded-lg font-semibold transition-colors"
+            className="inline-block bg-accent hover:bg-accent-hover text-white px-8 py-4 rounded-button font-semibold transition-colors"
           >
             Solicitar Cotización
           </Link>
