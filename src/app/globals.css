@@ -7,8 +7,12 @@
   --color-primary-active: #122238;
   --color-primary-light: #EEF4FB;
 
-  --color-accent: #C58B39;
-  --color-accent-hover: #A9742E;
+  --color-accent: #84CC16;
+  --color-accent-hover: #65A30D;
+  --color-accent-soft: #ECFCCB;
+
+  /* Banda oscura (stats) */
+  --color-dark: #1B2A3A;
 
   /* === Textos === */
   --color-text-title: #1B1F24;
