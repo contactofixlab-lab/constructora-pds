@@ -15,15 +15,15 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-primary-800 text-white shadow-lg sticky top-0 z-50">
+    <nav className="bg-white shadow-lg sticky top-0 z-50 border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-nav-height">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-accent-500 rounded-lg flex items-center justify-center font-bold">
+            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center font-bold text-white">
               PDS
             </div>
-            <span className="hidden sm:inline font-bold text-lg">Constructora PDS</span>
+            <span className="hidden sm:inline font-bold text-lg text-text-title">Constructora PDS</span>
           </Link>
 
           {/* Desktop Menu */}
@@ -32,7 +32,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="hover:text-accent-500 transition-colors"
+                className="text-text-base hover:text-primary transition-colors font-medium"
               >
                 {item.label}
               </Link>
@@ -42,7 +42,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 hover:bg-primary-700 rounded-lg"
+            className="md:hidden p-2 hover:bg-background-alt rounded-lg text-text-title"
           >
             <svg
               className="w-6 h-6"
@@ -67,7 +67,7 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block px-4 py-2 hover:bg-primary-700 rounded-lg transition-colors"
+                className="block px-4 py-2 text-text-base hover:bg-background-alt rounded-lg transition-colors"
                 onClick={() => setIsOpen(false)}
               >
                 {item.label}

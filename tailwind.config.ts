@@ -9,50 +9,54 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Colores corporativos de Constructora PDS
         primary: {
-          50: "#f0f4f9",
-          100: "#dfe6f0",
-          200: "#bdd1e1",
-          300: "#9bbad2",
-          400: "#6989b3",
-          500: "#385894",
-          600: "#2d4575",
-          700: "#1e2d4d",
-          800: "#0f172a",
-          900: "#0a0f1f",
-        },
-        secondary: {
-          50: "#f5f3ff",
-          100: "#ede9fe",
-          200: "#ddd6fe",
-          300: "#c4b5fd",
-          400: "#a78bfa",
-          500: "#8b5cf6",
-          600: "#7c3aed",
-          700: "#6d28d9",
-          800: "#5b21b6",
-          900: "#3f0f82",
+          DEFAULT: "#1F3A5F",
+          hover: "#162B47",
+          active: "#122238",
+          light: "#EEF4FB",
         },
         accent: {
-          50: "#fff7ed",
-          100: "#ffedd5",
-          200: "#fed7aa",
-          300: "#fdba74",
-          400: "#fb923c",
-          500: "#f97316",
-          600: "#ea580c",
-          700: "#c2410c",
-          800: "#9a3412",
-          900: "#7c2d12",
+          DEFAULT: "#C58B39",
+          hover: "#A9742E",
+        },
+        // Paleta de textos
+        text: {
+          title: "#1B1F24",
+          subtitle: "#243244",
+          base: "#4B5563",
+          secondary: "#6B7280",
+          light: "#9CA3AF",
+          inverse: "#F9FAFB",
+          inverse_secondary: "#D1D5DB",
+        },
+        // Fondos
+        background: {
+          default: "#F7F8FA",
+          surface: "#FFFFFF",
+          alt: "#F3F4F6",
+          footer: "#111827",
+        },
+        // Bordes
+        border: {
+          DEFAULT: "#E5E7EB",
+          secondary: "#D1D5DB",
         },
       },
       fontFamily: {
-        sans: ["Inter", "system-ui", "sans-serif"],
-        serif: ["Georgia", "serif"],
+        sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
       },
       spacing: {
         "nav-height": "4rem",
         "section": "6rem",
+      },
+      borderRadius: {
+        button: "10px",
+        card: "14px",
+      },
+      boxShadow: {
+        card: "0 10px 30px rgba(15, 23, 42, 0.06)",
+        focus: "0 0 0 4px rgba(31, 58, 95, 0.12)",
       },
     },
   },
