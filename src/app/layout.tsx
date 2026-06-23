@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import RootLayout from '@/components/layout/RootLayout';
+import Navbar from '@/components/layout/Navbar';
+import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
   title: 'Constructora PDS | Proyectos Inmobiliarios de Calidad',
@@ -16,7 +17,13 @@ export default function Layout({
   return (
     <html lang="es">
       <body className="antialiased">
-        <RootLayout>{children}</RootLayout>
+        <div className="flex flex-col min-h-screen bg-white">
+          <Navbar />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );
