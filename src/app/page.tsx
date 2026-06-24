@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import FeaturedProjects from '@/components/FeaturedProjects';
 
 export default function Home() {
   const servicios = [
@@ -50,40 +51,26 @@ export default function Home() {
 
   const proyectos = [
     {
-      id: 1,
-      nombre: 'NeoBrisas',
-      tipo: 'Residencial',
-      comuna: 'La Cisterna',
-      descripcion: 'Proyecto que combina la tranquilidad deseada con una conectividad insuperable.',
-      departamentos: 108,
-      image: '/89f873117_FACHADA_NEOBRISAS.jpg',
-    },
-    {
-      id: 2,
       nombre: 'NeoYungay',
       tipo: 'Residencial',
+      direccion: 'Av. General Bulnes 1239',
       comuna: 'Santiago',
-      descripcion: 'Un proyecto con esencia de barrio, que conecta a las personas con un entorno único.',
+      descripcion: 'Un proyecto con esencia de barrio, que conecta a las personas con un entorno único cargado de historia.',
       departamentos: 105,
+      bodegas: 48,
+      estacionamientos: 62,
       image: '/1c4a95389_Edificio__NeoYungay.jpg',
     },
-  ];
-
-  const comentarios = [
     {
-      nombre: 'Cliente Satisfecho',
-      rol: 'Propietario',
-      texto: 'Excelente trabajo y cumplimiento de plazos. La comunicación durante todo el proceso fue clara y constante.',
-    },
-    {
-      nombre: 'Inversionista',
-      rol: 'Socio Comercial',
-      texto: 'Profesionalismo y calidad en cada etapa. Un equipo confiable con el que da gusto trabajar.',
-    },
-    {
-      nombre: 'Familia Compradora',
-      rol: 'Propietario',
-      texto: 'Nos entregaron un hogar de gran calidad, tal como se prometió. Totalmente recomendados.',
+      nombre: 'NeoBrisas',
+      tipo: 'Residencial',
+      direccion: 'Las Brisas 177',
+      comuna: 'La Cisterna',
+      descripcion: 'Proyecto que combina la tranquilidad deseada con una conectividad insuperable, ubicado estratégicamente.',
+      departamentos: 108,
+      bodegas: 110,
+      estacionamientos: 56,
+      image: '/89f873117_FACHADA_NEOBRISAS.jpg',
     },
   ];
 
@@ -269,34 +256,8 @@ export default function Home() {
             </h2>
             <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-4" />
           </div>
-          <div className="grid md:grid-cols-2 gap-8 mb-10">
-            {proyectos.map((p) => (
-              <Link key={p.id} href={`/proyectos/${p.id}`}>
-                <div className="bg-background-surface rounded-card overflow-hidden shadow-card hover:shadow-lg transition-shadow group border border-border">
-                  <div className="h-56 overflow-hidden bg-primary/10">
-                    <img
-                      src={p.image}
-                      alt={p.nombre}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex justify-between items-start mb-3">
-                      <span className="inline-block bg-accent-soft text-accent-hover px-3 py-1 rounded-full text-sm font-semibold">
-                        {p.tipo}
-                      </span>
-                      <span className="text-text-secondary text-sm font-medium">{p.departamentos} depts</span>
-                    </div>
-                    <h3 className="text-2xl font-bold text-text-title mb-1">{p.nombre}</h3>
-                    <p className="text-text-secondary text-sm mb-3">📍 {p.comuna}</p>
-                    <p className="text-text-base text-sm mb-4">{p.descripcion}</p>
-                    <span className="text-accent-hover font-semibold inline-flex items-center gap-1 group-hover:gap-2 transition-all">
-                      Ver Detalles <span>→</span>
-                    </span>
-                  </div>
-                </div>
-              </Link>
-            ))}
+          <div className="mb-10">
+            <FeaturedProjects projects={proyectos} />
           </div>
           <div className="text-center">
             <Link
@@ -305,38 +266,6 @@ export default function Home() {
             >
               Ver Todos los Proyectos
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== COMENTARIOS ===== */}
-      <section className="py-section bg-background-alt">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
-            <h2 className="text-3xl md:text-4xl font-bold text-text-title inline-block">
-              Comentarios
-            </h2>
-            <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-4" />
-          </div>
-          <div className="grid md:grid-cols-3 gap-6">
-            {comentarios.map((c, i) => (
-              <div
-                key={i}
-                className="bg-background-surface rounded-card border border-border p-8 hover:shadow-card transition-shadow"
-              >
-                <div className="text-accent text-4xl leading-none mb-4">&ldquo;</div>
-                <p className="text-text-base italic mb-6">{c.texto}</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-accent-soft flex items-center justify-center text-accent-hover font-bold">
-                    {c.nombre.charAt(0)}
-                  </div>
-                  <div>
-                    <div className="font-bold text-text-title text-sm">{c.nombre}</div>
-                    <div className="text-text-secondary text-xs">{c.rol}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

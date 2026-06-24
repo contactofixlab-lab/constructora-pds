@@ -37,12 +37,6 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/contacto"
-              className="bg-accent hover:bg-accent-hover text-dark px-5 py-2.5 rounded-button font-semibold transition-colors"
-            >
-              Cotizar
-            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -75,13 +69,6 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
-            <Link
-              href="/contacto"
-              className="block mx-4 mt-2 text-center bg-accent text-dark px-5 py-2.5 rounded-button font-semibold"
-              onClick={() => setIsOpen(false)}
-            >
-              Cotizar
-            </Link>
           </div>
         )}
       </div>
