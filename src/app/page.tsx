@@ -81,7 +81,7 @@ export default function Home() {
       <section className="relative bg-dark text-white overflow-hidden">
         <img src="/NOSOTROS ARRIBA.png" alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover object-center" />
         <div className="absolute inset-0 bg-dark/60" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-40 pb-36 text-center">
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-40 pb-24 md:pb-36 text-center">
           <h1
             className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-text-inverse"
             style={{ animation: 'fadeUp 0.9s ease both' }}
@@ -124,7 +124,7 @@ export default function Home() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {razones.map((razon, i) => (
               <FadeIn key={razon.titulo} delay={i * 120} className="h-full">
-                <div className="group relative overflow-hidden rounded-2xl border border-border bg-white p-8 flex flex-col hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 cursor-default min-h-[340px] h-full">
+                <div className="group relative overflow-hidden rounded-2xl border border-border bg-white p-8 flex flex-col hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 cursor-default min-h-[220px] sm:min-h-[340px] h-full">
                   {/* Línea superior animada */}
                   <div className="absolute top-0 left-0 h-1 w-0 bg-accent group-hover:w-full transition-all duration-500 rounded-b-full" />
 
@@ -202,10 +202,10 @@ export default function Home() {
       {/* ===== NOSOTROS (intro) ===== */}
       <section className="py-24 md:py-32 bg-background-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-16 items-center">
             {/* Imagen + badge */}
             <FadeIn direction="left">
-              <div className="relative">
+              <div className="relative mb-10 md:mb-0">
                 <div className="rounded-2xl h-[420px] md:h-[520px] overflow-hidden shadow-xl">
                   <img
                     src="/NOSOTROS ARRIBA.png"
