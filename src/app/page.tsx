@@ -45,6 +45,7 @@ export default function Home() {
     { nombre: 'Iencinas', src: '/iencinas logo.png' },
     { nombre: 'NeoYungay', src: '/NEOYUNGAY NEGRO.png' },
     { nombre: 'NeoBrisas', src: '/Logo-NeoBrisas1.png' },
+    { nombre: 'MK', src: '/MK LOGO.png' },
   ];
 
   const proyectos = [
@@ -90,7 +91,8 @@ export default function Home() {
     <>
       {/* ===== HERO ===== */}
       <section className="relative bg-dark text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark to-primary/50" />
+        <img src="/hero-construccion.svg" alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-dark/70" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-40 text-center">
           <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-text-inverse">
             Construimos el futuro que <span className="text-accent">imaginas</span>
@@ -182,8 +184,12 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Imagen + badge */}
             <div className="relative">
-              <div className="bg-primary/10 rounded-card h-80 md:h-96 flex items-center justify-center overflow-hidden border border-border">
-                <span className="text-text-light">Imagen de obra</span>
+              <div className="rounded-card h-80 md:h-96 overflow-hidden border border-border">
+                <img
+                  src="/obra-construccion.svg"
+                  alt="Edificio en construcción"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="absolute -bottom-6 -left-2 md:left-6 bg-accent text-dark rounded-card px-6 py-4 shadow-card">
                 <div className="text-3xl font-bold leading-none">+10</div>
@@ -228,21 +234,25 @@ export default function Home() {
       </section>
 
       {/* ===== SOCIOS COMERCIALES ===== */}
-      <section className="py-20 bg-background-alt">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-text-title inline-block">
-              Socios Comerciales
-            </h2>
-            <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-4" />
-          </div>
-          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
-            {socios.map((socio) => (
-              <div key={socio.nombre} className="h-12 flex items-center">
+      <section className="py-16 bg-accent overflow-hidden">
+        <div className="text-center mb-10 px-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-dark inline-block">
+            Socios Comerciales
+          </h2>
+          <div className="w-16 h-1 bg-dark/60 rounded-full mx-auto mt-4" />
+        </div>
+        {/* carrusel automático */}
+        <div className="relative w-full overflow-hidden">
+          <div className="flex items-center gap-6 w-max animate-marquee">
+            {[...socios, ...socios].map((socio, i) => (
+              <div
+                key={i}
+                className="bg-white rounded-card shadow-sm h-24 w-44 flex items-center justify-center px-6 flex-shrink-0"
+              >
                 <img
                   src={socio.src}
                   alt={socio.nombre}
-                  className="max-h-12 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+                  className="max-h-12 max-w-[120px] w-auto object-contain"
                 />
               </div>
             ))}

@@ -47,6 +47,14 @@
   /* === Espaciado custom === */
   --spacing-nav-height: 4rem;
   --spacing-section: 6rem;
+
+  /* === Animaciones === */
+  --animate-marquee: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 html {

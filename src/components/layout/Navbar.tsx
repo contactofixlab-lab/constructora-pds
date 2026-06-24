@@ -22,7 +22,7 @@ export default function Navbar() {
             <img
               src="/LOGO EMRPESA.png"
               alt="Constructora Puerta del Sol"
-              className="h-12 w-auto object-contain"
+              className="h-16 w-auto object-contain"
             />
           </Link>
 
