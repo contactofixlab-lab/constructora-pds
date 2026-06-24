@@ -81,7 +81,7 @@ export default function Home() {
       <section className="relative bg-dark text-white overflow-hidden">
         <img src="/NOSOTROS ARRIBA.png" alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover object-center" />
         <div className="absolute inset-0 bg-dark/60" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-40 text-center">
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-40 pb-36 text-center">
           <h1
             className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-text-inverse"
             style={{ animation: 'fadeUp 0.9s ease both' }}
@@ -103,6 +103,12 @@ export default function Home() {
               Ver Proyectos
             </Link>
           </div>
+        </div>
+        {/* Curva inferior → bg-background-default */}
+        <div className="absolute bottom-0 left-0 right-0" style={{ lineHeight: 0 }}>
+          <svg viewBox="0 0 1440 72" preserveAspectRatio="none" style={{ display: 'block' }} className="w-full">
+            <path fill="#F7F8FA" d="M0,36 C360,72 1080,0 1440,36 L1440,72 L0,72 Z" />
+          </svg>
         </div>
       </section>
 
@@ -194,17 +200,17 @@ export default function Home() {
       </section>
 
       {/* ===== NOSOTROS (intro) ===== */}
-      <section className="py-section bg-background-surface">
+      <section className="py-24 md:py-32 bg-background-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
             {/* Imagen + badge */}
             <FadeIn direction="left">
               <div className="relative">
-                <div className="rounded-card h-80 md:h-96 overflow-hidden border border-border">
+                <div className="rounded-2xl h-[420px] md:h-[520px] overflow-hidden shadow-xl">
                   <img
-                    src="/obra-construccion.svg"
-                    alt="Edificio en construcción"
-                    className="w-full h-full object-cover"
+                    src="/NOSOTROS ARRIBA.png"
+                    alt="Equipo Constructora Puerta del Sol"
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
                 <div className="absolute -bottom-6 -left-2 md:left-6 bg-accent text-dark rounded-card px-6 py-4 shadow-card">
@@ -218,15 +224,15 @@ export default function Home() {
 
             {/* Texto + checklist */}
             <FadeIn direction="right">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-text-title">
+              <h2 className="text-3xl md:text-5xl font-bold mb-5 text-text-title leading-tight">
                 Construyendo con <span className="text-accent">Pasión</span> y Excelencia
               </h2>
-              <p className="text-text-base mb-6">
+              <p className="text-text-base text-lg mb-7 leading-relaxed">
                 Somos una constructora especializada en el desarrollo de proyectos residenciales y
                 comerciales. Nos enfocamos en ser el brazo constructor de cada proyecto, aportando
                 calidad y compromiso en todas sus etapas.
               </p>
-              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-3 mb-8">
+              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-5 mb-10">
                 {servicios.map((servicio) => (
                   <div key={servicio} className="flex items-center gap-3">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-soft flex items-center justify-center">
@@ -251,7 +257,13 @@ export default function Home() {
       </section>
 
       {/* ===== SOCIOS COMERCIALES ===== */}
-      <section className="py-16 bg-accent-soft overflow-hidden">
+      <section className="relative py-24 bg-accent-soft overflow-hidden">
+        {/* Curva superior ← bg-background-surface */}
+        <div className="absolute top-0 left-0 right-0" style={{ lineHeight: 0 }}>
+          <svg viewBox="0 0 1440 72" preserveAspectRatio="none" style={{ display: 'block' }} className="w-full">
+            <path fill="#FFFFFF" d="M0,36 C360,0 1080,72 1440,36 L1440,0 L0,0 Z" />
+          </svg>
+        </div>
         <div className="text-center mb-10 px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-text-title inline-block">
             Socios <span className="text-accent-hover">Comerciales</span>
@@ -273,6 +285,12 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+        {/* Curva inferior → bg-background-surface */}
+        <div className="absolute bottom-0 left-0 right-0" style={{ lineHeight: 0 }}>
+          <svg viewBox="0 0 1440 72" preserveAspectRatio="none" style={{ display: 'block' }} className="w-full">
+            <path fill="#FFFFFF" d="M0,36 C360,72 1080,0 1440,36 L1440,72 L0,72 Z" />
+          </svg>
         </div>
       </section>
 

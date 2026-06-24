@@ -42,6 +42,12 @@ export default function Proyectos() {
             Desarrollos inmobiliarios que combinan calidad, ubicación y diseño
           </p>
         </div>
+        {/* Curva inferior — sin artifact de línea */}
+        <div className="absolute bottom-0 left-0 right-0" style={{ lineHeight: 0 }}>
+          <svg viewBox="0 0 1440 72" preserveAspectRatio="none" style={{ display: 'block' }} className="w-full">
+            <path fill="#F7F8FA" d="M0,36 C360,72 1080,0 1440,36 L1440,72 L0,72 Z" />
+          </svg>
+        </div>
       </section>
 
       {/* ===== Proyectos ===== */}
