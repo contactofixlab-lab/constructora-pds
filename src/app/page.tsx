@@ -160,11 +160,11 @@ export default function Home() {
       </section>
 
       {/* ===== STATS (banda oscura ondulada) ===== */}
-      <section className="relative bg-dark py-20">
-        {/* onda superior */}
-        <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] -translate-y-px">
-          <svg className="relative block w-full h-[60px]" viewBox="0 0 1440 60" preserveAspectRatio="none">
-            <path fill="var(--color-background-surface)" d="M0,32 C240,64 480,0 720,16 C960,32 1200,64 1440,24 L1440,0 L0,0 Z" />
+      <section className="relative bg-dark py-28">
+        {/* onda superior — 90px, curva profunda tipo lente */}
+        <div className="absolute top-0 left-0 w-full" style={{ lineHeight: 0 }}>
+          <svg viewBox="0 0 1440 90" preserveAspectRatio="none" style={{ display: 'block' }} className="w-full">
+            <path fill="#FFFFFF" d="M0,45 C480,90 960,0 1440,45 L1440,0 L0,0 Z" />
           </svg>
         </div>
 
@@ -191,10 +191,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* onda inferior */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] rotate-180 translate-y-px">
-          <svg className="relative block w-full h-[60px]" viewBox="0 0 1440 60" preserveAspectRatio="none">
-            <path fill="var(--color-background-surface)" d="M0,32 C240,64 480,0 720,16 C960,32 1200,64 1440,24 L1440,0 L0,0 Z" />
+        {/* onda inferior — 90px, curva profunda tipo lente */}
+        <div className="absolute bottom-0 left-0 w-full" style={{ lineHeight: 0 }}>
+          <svg viewBox="0 0 1440 90" preserveAspectRatio="none" style={{ display: 'block' }} className="w-full">
+            <path fill="#FFFFFF" d="M0,45 C480,0 960,90 1440,45 L1440,90 L0,90 Z" />
           </svg>
         </div>
       </section>
@@ -257,7 +257,7 @@ export default function Home() {
       </section>
 
       {/* ===== SOCIOS COMERCIALES ===== */}
-      <section className="relative py-24 bg-accent-soft overflow-hidden">
+      <section className="relative py-24 overflow-hidden" style={{ backgroundColor: 'rgba(132,204,22,0.07)' }}>
         {/* Curva superior ← bg-background-surface */}
         <div className="absolute top-0 left-0 right-0" style={{ lineHeight: 0 }}>
           <svg viewBox="0 0 1440 72" preserveAspectRatio="none" style={{ display: 'block' }} className="w-full">
