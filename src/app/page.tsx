@@ -221,26 +221,25 @@ export default function Home() {
       </section>
 
       {/* ===== SOCIOS COMERCIALES ===== */}
-      <section className="py-16 bg-accent overflow-hidden">
+      <section className="py-16 bg-accent-soft overflow-hidden">
         <div className="text-center mb-10 px-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-dark inline-block">
-            Socios Comerciales
+          <h2 className="text-3xl md:text-4xl font-bold text-text-title inline-block">
+            Socios <span className="text-accent-hover">Comerciales</span>
           </h2>
-          <div className="w-16 h-1 bg-dark/60 rounded-full mx-auto mt-4" />
+          <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-4" />
         </div>
-        {/* carrusel automático */}
+        {/* carrusel infinito — padding en cada item (no gap) para que -50% sea exacto */}
         <div className="relative w-full overflow-hidden">
-          <div className="flex items-center gap-6 w-max animate-marquee">
+          <div className="flex items-center animate-marquee">
             {[...socios, ...socios].map((socio, i) => (
-              <div
-                key={i}
-                className="bg-white rounded-card shadow-sm h-24 w-44 flex items-center justify-center px-6 flex-shrink-0"
-              >
-                <img
-                  src={socio.src}
-                  alt={socio.nombre}
-                  className="max-h-12 max-w-[120px] w-auto object-contain"
-                />
+              <div key={i} className="pr-6 flex-shrink-0">
+                <div className="bg-white rounded-card shadow-sm h-24 w-44 flex items-center justify-center px-6">
+                  <img
+                    src={socio.src}
+                    alt={socio.nombre}
+                    className="max-h-12 max-w-[120px] w-auto object-contain"
+                  />
+                </div>
               </div>
             ))}
           </div>
