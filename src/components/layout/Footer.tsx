@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { contactoInfo } from '@/data/contacto';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -36,12 +37,12 @@ export default function Footer() {
             <h4 className="font-bold mb-4 text-text-inverse uppercase text-sm tracking-wide">Contacto</h4>
             <ul className="space-y-2 text-sm text-text-inverse_secondary">
               <li>
-                <a href="tel:+56979877883" className="hover:text-accent transition-colors">+56 9 7987 7883</a>
+                <a href={contactoInfo.telefonoHref} className="hover:text-accent transition-colors">{contactoInfo.telefono}</a>
               </li>
               <li>
-                <a href="mailto:brabanales@rcap.cl" className="hover:text-accent transition-colors">brabanales@rcap.cl</a>
+                <a href={contactoInfo.emailHref} className="hover:text-accent transition-colors">{contactoInfo.email}</a>
               </li>
-              <li>Región Metropolitana, Santiago</li>
+              <li>{contactoInfo.ubicacion}</li>
             </ul>
           </div>
         </div>

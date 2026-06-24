@@ -1,29 +1,7 @@
 'use client';
 
 import { FormEvent, useState } from 'react';
-
-const faqs = [
-  {
-    q: '¿En qué tipo de proyectos se especializa Constructora Puerta del Sol?',
-    a: 'Nos especializamos en proyectos habitacionales y comerciales de alto estándar, incluyendo edificación en altura, edificación en extensión y urbanización. Somos el brazo constructor de cada proyecto, garantizando calidad y compromiso en todas las etapas.',
-  },
-  {
-    q: '¿Cómo puedo trabajar con Constructora Puerta del Sol?',
-    a: 'Puedes contactarnos a través de este formulario o directamente por teléfono o email. Nuestro equipo evaluará tu proyecto y te orientará sobre los pasos a seguir para iniciar una colaboración.',
-  },
-  {
-    q: '¿En qué comunas o regiones trabajan?',
-    a: 'Operamos principalmente en la Región Metropolitana de Santiago. Proyectos como NeoYungay (Santiago) y NeoBrisas (La Cisterna) son ejemplos de nuestra presencia en distintas comunas.',
-  },
-  {
-    q: '¿Cuánto tiempo toma un proyecto de construcción típico?',
-    a: 'El plazo varía según la escala y complejidad del proyecto. En cada caso definimos un cronograma detallado y nos comprometemos a cumplirlo, manteniendo comunicación constante con nuestros socios y clientes.',
-  },
-  {
-    q: '¿Es posible visitar una obra en ejecución?',
-    a: 'Sí, podemos coordinar visitas guiadas a obras en desarrollo, siempre respetando los protocolos de seguridad vigentes. Contáctanos para agendar una visita.',
-  },
-];
+import { contactoInfo, faqs } from '@/data/contacto';
 
 const inputCls =
   'w-full px-4 py-3 border border-border rounded-card bg-background-alt text-text-title placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors text-sm';
@@ -51,8 +29,8 @@ export default function Contacto() {
   const contactItems = [
     {
       label: 'Teléfono',
-      value: '+56 9 7987 7883',
-      href: 'tel:+56979877883',
+      value: contactoInfo.telefono,
+      href: contactoInfo.telefonoHref,
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
           d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
@@ -60,8 +38,8 @@ export default function Contacto() {
     },
     {
       label: 'Email',
-      value: 'brabanales@rcap.cl',
-      href: 'mailto:brabanales@rcap.cl',
+      value: contactoInfo.email,
+      href: contactoInfo.emailHref,
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
           d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
@@ -69,8 +47,8 @@ export default function Contacto() {
     },
     {
       label: 'Ubicación',
-      value: 'Santiago, Región Metropolitana',
-      href: null,
+      value: contactoInfo.ubicacion,
+      href: null as null,
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
           d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
@@ -78,9 +56,9 @@ export default function Contacto() {
     },
     {
       label: 'Horario',
-      value: 'Lun–Vie 9:00–18:00',
-      value2: 'Sáb 10:00–14:00',
-      href: null,
+      value: contactoInfo.horario,
+      value2: contactoInfo.horario2,
+      href: null as null,
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
           d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
