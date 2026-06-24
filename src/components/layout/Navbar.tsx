@@ -10,46 +10,48 @@ export default function Navbar() {
     { label: 'Inicio', href: '/' },
     { label: 'Nosotros', href: '/nosotros' },
     { label: 'Proyectos', href: '/proyectos' },
-    { label: 'Equipo', href: '/equipo' },
     { label: 'Contacto', href: '/contacto' },
   ];
 
   return (
-    <nav className="bg-white shadow-lg sticky top-0 z-50 border-b border-border">
+    <nav className="bg-white shadow-sm sticky top-0 z-50 border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-nav-height">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center font-bold text-white">
-              PDS
-            </div>
-            <span className="hidden sm:inline font-bold text-lg text-text-title">Constructora PDS</span>
+          <Link href="/" className="flex items-center">
+            <img
+              src="/LOGO EMRPESA.png"
+              alt="Constructora Puerta del Sol"
+              className="h-12 w-auto object-contain"
+            />
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex gap-8">
+          <div className="hidden md:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-text-base hover:text-primary transition-colors font-medium"
+                className="text-text-title hover:text-accent transition-colors font-medium"
               >
                 {item.label}
               </Link>
             ))}
+            <Link
+              href="/contacto"
+              className="bg-accent hover:bg-accent-hover text-dark px-5 py-2.5 rounded-button font-semibold transition-colors"
+            >
+              Cotizar
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 hover:bg-background-alt rounded-lg text-text-title"
+            aria-label="Abrir menú"
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
@@ -62,7 +64,7 @@ export default function Navbar() {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-2">
+          <div className="md:hidden pb-4 space-y-1">
             {navItems.map((item) => (
               <Link
                 key={item.href}
@@ -73,6 +75,13 @@ export default function Navbar() {
                 {item.label}
               </Link>
             ))}
+            <Link
+              href="/contacto"
+              className="block mx-4 mt-2 text-center bg-accent text-dark px-5 py-2.5 rounded-button font-semibold"
+              onClick={() => setIsOpen(false)}
+            >
+              Cotizar
+            </Link>
           </div>
         )}
       </div>

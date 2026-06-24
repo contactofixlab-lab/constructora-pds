@@ -216,7 +216,7 @@ export default function Home() {
                 ))}
               </div>
               <Link
-                href="/equipo"
+                href="/nosotros"
                 className="inline-flex items-center gap-2 bg-dark hover:bg-primary text-white px-6 py-3 rounded-button font-semibold transition-colors"
               >
                 Conoce a Nuestro Equipo

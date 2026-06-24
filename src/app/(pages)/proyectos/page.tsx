@@ -1,87 +1,110 @@
-import Link from 'next/link';
+const proyectos = [
+  {
+    nombre: 'NeoYungay',
+    tipo: 'Residencial',
+    status: 'Entrega Inmediata',
+    direccion: 'Av. General Bulnes 1239',
+    comuna: 'Santiago',
+    descripcion:
+      'Una nueva posibilidad comienza en Santiago, conectando a las personas con un entorno único cargado de historia. NeoYungay es un proyecto con esencia de barrio, que ofrece todo lo necesario para complementar cada uno de tus días.',
+    highlights: ['Una ubicación privilegiada', 'Supermercados y restaurantes', 'Colegios cercanos', 'Plaza Yungay'],
+    departamentos: 105,
+    bodegas: 48,
+    estacionamientos: 62,
+    image: '/1c4a95389_Edificio__NeoYungay.jpg',
+  },
+  {
+    nombre: 'NeoBrisas',
+    tipo: 'Residencial',
+    status: 'Entrega Inmediata',
+    direccion: 'Las Brisas 177',
+    comuna: 'La Cisterna',
+    descripcion:
+      'Proyecto que combina la tranquilidad deseada con una conectividad insuperable. Ubicado estratégicamente, brinda acceso conveniente a todo lo necesario en la vida diaria.',
+    highlights: ['Comercios, servicios y bancos', 'Metro y Municipalidad', 'Mercado y áreas verdes'],
+    departamentos: 108,
+    bodegas: 110,
+    estacionamientos: 56,
+    image: '/89f873117_FACHADA_NEOBRISAS.jpg',
+  },
+];
 
 export default function Proyectos() {
-  const projects = [
-    {
-      id: 1,
-      title: 'NeoBrisas',
-      type: 'Residencial',
-      ubicacion: 'La Cisterna',
-      descripcion: 'Proyecto que combina la tranquilidad deseada con una conectividad insuperable.',
-      departamentos: 108,
-      image: '/89f873117_FACHADA_NEOBRISAS.jpg'
-    },
-    {
-      id: 2,
-      title: 'NeoYungay',
-      type: 'Residencial',
-      ubicacion: 'Santiago',
-      descripcion: 'Un proyecto con esencia de barrio, conectando a las personas con un entorno único.',
-      departamentos: 105,
-      image: '/1c4a95389_Edificio__NeoYungay.jpg'
-    },
-  ];
-
   return (
     <>
-      {/* Header */}
-      <section className="bg-gradient-to-r from-primary to-primary/90 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-text-inverse">Proyectos</h1>
-          <p className="text-lg text-text-inverse_secondary">Portafolio de proyectos residenciales de calidad</p>
-        </div>
-      </section>
-
-      {/* Projects Grid */}
-      <section className="py-section bg-background-alt">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-8">
-            {projects.map((project) => (
-              <Link key={project.id} href={`/proyectos/${project.id}`}>
-                <div className="bg-background-surface rounded-card overflow-hidden shadow-card hover:shadow-lg transition-shadow cursor-pointer group">
-                  <div className="bg-primary/10 h-56 flex items-center justify-center group-hover:bg-primary/20 transition-colors overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <div className="flex justify-between items-start mb-3">
-                      <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-semibold">
-                        {project.type}
-                      </span>
-                      <span className="text-text-secondary text-sm font-medium">{project.departamentos} depts</span>
-                    </div>
-                    <h3 className="text-2xl font-bold text-text-title mb-2">{project.title}</h3>
-                    <p className="text-text-secondary text-sm mb-3">📍 {project.ubicacion}</p>
-                    <p className="text-text-base text-sm mb-4">
-                      {project.descripcion}
-                    </p>
-                    <div className="text-accent font-semibold flex items-center gap-1 group-hover:gap-2 transition-all">
-                      Ver Detalles <span>→</span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-section bg-background-surface">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-text-title">¿Interesado en Alguno de Nuestros Proyectos?</h2>
-          <p className="text-text-base mb-8 max-w-2xl mx-auto">
-            Contáctanos para obtener más información, cotizaciones y conocer todas las opciones disponibles.
+      {/* ===== Banner ===== */}
+      <section className="relative h-[340px] md:h-[420px] flex items-center justify-center overflow-hidden">
+        <img src="/PROYECTOS ARRIBA.png" alt="Nuestros proyectos" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-dark/65" />
+        <div className="relative text-center px-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">Nuestros Proyectos</h1>
+          <p className="text-lg text-text-inverse_secondary max-w-2xl mx-auto">
+            Desarrollos inmobiliarios que combinan calidad, ubicación y diseño
           </p>
-          <Link
-            href="/contacto"
-            className="inline-block bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-button font-semibold transition-colors"
-          >
-            Solicitar Información
-          </Link>
+        </div>
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] rotate-180">
+          <svg className="relative block w-full h-[50px]" viewBox="0 0 1440 50" preserveAspectRatio="none">
+            <path fill="var(--color-background-surface)" d="M0,25 C240,50 480,0 720,12 C960,25 1200,50 1440,18 L1440,0 L0,0 Z" />
+          </svg>
+        </div>
+      </section>
+
+      {/* ===== Proyectos ===== */}
+      <section className="py-section bg-background-surface">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+          {proyectos.map((p, i) => (
+            <div
+              key={p.nombre}
+              className={`grid md:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? 'md:[&>*:first-child]:order-2' : ''}`}
+            >
+              {/* Imagen */}
+              <div className="relative">
+                <img
+                  src={p.image}
+                  alt={p.nombre}
+                  className="w-full h-72 md:h-96 object-cover rounded-card shadow-card"
+                />
+                <div className="absolute top-4 left-4 flex gap-2">
+                  <span className="bg-accent text-dark text-xs font-bold px-3 py-1 rounded-full">{p.status}</span>
+                  <span className="bg-white/90 text-text-title text-xs font-bold px-3 py-1 rounded-full">{p.tipo}</span>
+                </div>
+              </div>
+
+              {/* Contenido */}
+              <div>
+                <span className="text-accent text-xs font-bold uppercase tracking-wide">{p.tipo}</span>
+                <h2 className="text-3xl font-bold text-text-title mt-1 mb-2">{p.nombre}</h2>
+                <p className="text-text-secondary text-sm mb-4">📍 {p.direccion} — {p.comuna}</p>
+                <p className="text-text-base mb-6">{p.descripcion}</p>
+
+                <ul className="space-y-2 mb-8">
+                  {p.highlights.map((h) => (
+                    <li key={h} className="flex items-center gap-3 text-sm text-text-base">
+                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-accent-soft flex items-center justify-center">
+                        <svg className="w-3 h-3 text-accent-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="m4.5 12.75 6 6 9-13.5" />
+                        </svg>
+                      </span>
+                      {h}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="grid grid-cols-3 gap-4">
+                  {[
+                    { n: p.departamentos, l: 'Deptos' },
+                    { n: p.bodegas, l: 'Bodegas' },
+                    { n: p.estacionamientos, l: 'Estac.' },
+                  ].map((s) => (
+                    <div key={s.l} className="bg-background-alt rounded-card border border-border py-4 text-center">
+                      <div className="text-2xl font-bold text-accent-hover">{s.n}</div>
+                      <div className="text-text-secondary text-xs uppercase tracking-wide mt-1">{s.l}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </>

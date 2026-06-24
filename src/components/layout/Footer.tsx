@@ -4,92 +4,55 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-background-footer text-text-inverse py-12">
+    <footer className="bg-background-footer text-text-inverse pt-14 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
-          {/* Empresa */}
+        <div className="grid md:grid-cols-3 gap-10 mb-10">
+          {/* Logo + descripción */}
           <div>
-            <h3 className="text-lg font-bold mb-4 text-accent">Constructora PDS</h3>
-            <p className="text-text-inverse_secondary text-sm">
-              Desarrollando proyectos de calidad con compromiso y profesionalismo.
+            <div className="bg-white rounded-card inline-flex p-3 mb-4">
+              <img
+                src="/LOGO EMRPESA.png"
+                alt="Constructora Puerta del Sol"
+                className="h-10 w-auto object-contain"
+              />
+            </div>
+            <p className="text-text-inverse_secondary text-sm max-w-xs">
+              Desarrollamos proyectos de construcción de alto estándar, con calidad y compromiso en
+              cada etapa.
             </p>
           </div>
 
-          {/* Enlaces Rápidos */}
+          {/* Secciones */}
           <div>
-            <h4 className="font-bold mb-4 text-text-inverse">Enlaces</h4>
+            <h4 className="font-bold mb-4 text-text-inverse uppercase text-sm tracking-wide">Secciones</h4>
             <ul className="space-y-2 text-sm">
-              <li>
-                <Link href="/" className="text-text-inverse_secondary hover:text-accent transition-colors">
-                  Inicio
-                </Link>
-              </li>
-              <li>
-                <Link href="/nosotros" className="text-text-inverse_secondary hover:text-accent transition-colors">
-                  Nosotros
-                </Link>
-              </li>
-              <li>
-                <Link href="/proyectos" className="text-text-inverse_secondary hover:text-accent transition-colors">
-                  Proyectos
-                </Link>
-              </li>
-              <li>
-                <Link href="/equipo" className="text-text-inverse_secondary hover:text-accent transition-colors">
-                  Equipo
-                </Link>
-              </li>
+              <li><Link href="/" className="text-text-inverse_secondary hover:text-accent transition-colors">Inicio</Link></li>
+              <li><Link href="/nosotros" className="text-text-inverse_secondary hover:text-accent transition-colors">Nosotros</Link></li>
+              <li><Link href="/proyectos" className="text-text-inverse_secondary hover:text-accent transition-colors">Proyectos</Link></li>
+              <li><Link href="/contacto" className="text-text-inverse_secondary hover:text-accent transition-colors">Contacto</Link></li>
             </ul>
           </div>
 
           {/* Contacto */}
           <div>
-            <h4 className="font-bold mb-4 text-text-inverse">Contacto</h4>
+            <h4 className="font-bold mb-4 text-text-inverse uppercase text-sm tracking-wide">Contacto</h4>
             <ul className="space-y-2 text-sm text-text-inverse_secondary">
               <li>
-                <a href="tel:+56912345678" className="hover:text-accent transition-colors">
-                  +56 9 1234 5678
-                </a>
+                <a href="tel:+56979877883" className="hover:text-accent transition-colors">+56 9 7987 7883</a>
               </li>
               <li>
-                <a href="mailto:contacto@pds.cl" className="hover:text-accent transition-colors">
-                  contacto@pds.cl
-                </a>
+                <a href="mailto:brabanales@rcap.cl" className="hover:text-accent transition-colors">brabanales@rcap.cl</a>
               </li>
-              <li>Ciudad, Región</li>
+              <li>Región Metropolitana, Santiago</li>
             </ul>
-          </div>
-
-          {/* Redes Sociales */}
-          <div>
-            <h4 className="font-bold mb-4 text-text-inverse">Síguenos</h4>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 bg-primary hover:bg-accent rounded-lg flex items-center justify-center transition-colors text-white">
-                <span className="text-sm">f</span>
-              </a>
-              <a href="#" className="w-10 h-10 bg-primary hover:bg-accent rounded-lg flex items-center justify-center transition-colors text-white">
-                <span className="text-sm">in</span>
-              </a>
-              <a href="#" className="w-10 h-10 bg-primary hover:bg-accent rounded-lg flex items-center justify-center transition-colors text-white">
-                <span className="text-sm">ig</span>
-              </a>
-            </div>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="border-t border-primary pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center text-sm text-text-inverse_secondary">
-            <p>&copy; {currentYear} Constructora PDS. Todos los derechos reservados.</p>
-            <div className="flex gap-4 mt-4 md:mt-0">
-              <a href="#" className="hover:text-accent transition-colors">
-                Política de Privacidad
-              </a>
-              <a href="#" className="hover:text-accent transition-colors">
-                Términos de Servicio
-              </a>
-            </div>
-          </div>
+        <div className="border-t border-white/10 pt-6 text-center md:text-left">
+          <p className="text-text-inverse_secondary text-sm">
+            &copy; {currentYear} Constructora Puerta del Sol. Todos los derechos reservados.
+          </p>
         </div>
       </div>
     </footer>
