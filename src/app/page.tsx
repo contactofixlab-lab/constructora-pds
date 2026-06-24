@@ -104,13 +104,13 @@ export default function Home() {
             </Link>
           </div>
         </div>
-        {/* Curva inferior → bg-background-default */}
-        <div className="absolute bottom-0 left-0 right-0" style={{ lineHeight: 0 }}>
-          <svg viewBox="0 0 1440 72" preserveAspectRatio="none" style={{ display: 'block' }} className="w-full">
-            <path fill="#F7F8FA" d="M0,36 C360,72 1080,0 1440,36 L1440,72 L0,72 Z" />
-          </svg>
-        </div>
       </section>
+      {/* Onda entre hero y siguiente sección — fuera del overflow-hidden para evitar artifact */}
+      <div style={{ marginTop: '-70px', lineHeight: 0, position: 'relative', zIndex: 10 }}>
+        <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style={{ display: 'block' }} className="w-full">
+          <path fill="#F7F8FA" d="M0,35 C360,70 1080,0 1440,35 L1440,70 L0,70 Z" />
+        </svg>
+      </div>
 
       {/* ===== POR QUÉ ELEGIRNOS ===== */}
       <section className="py-section bg-background-default">
