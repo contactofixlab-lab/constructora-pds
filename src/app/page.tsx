@@ -231,7 +231,7 @@ export default function Home() {
         {/* carrusel infinito — padding en cada item (no gap) para que -50% sea exacto */}
         <div className="relative w-full overflow-hidden">
           <div className="flex items-center animate-marquee">
-            {[...socios, ...socios].map((socio, i) => (
+            {[...Array(6)].flatMap(() => socios).map((socio, i) => (
               <div key={i} className="pr-6 flex-shrink-0">
                 <div className="bg-white rounded-card shadow-sm h-24 w-44 flex items-center justify-center px-6">
                   <img
