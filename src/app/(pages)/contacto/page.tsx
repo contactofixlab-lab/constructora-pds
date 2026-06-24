@@ -2,160 +2,227 @@
 
 import { FormEvent, useState } from 'react';
 
+const faqs = [
+  {
+    q: '¿En qué tipo de proyectos se especializa Constructora Puerta del Sol?',
+    a: 'Nos especializamos en proyectos habitacionales y comerciales de alto estándar, incluyendo edificación en altura, edificación en extensión y urbanización. Somos el brazo constructor de cada proyecto, garantizando calidad y compromiso en todas las etapas.',
+  },
+  {
+    q: '¿Cómo puedo trabajar con Constructora Puerta del Sol?',
+    a: 'Puedes contactarnos a través de este formulario o directamente por teléfono o email. Nuestro equipo evaluará tu proyecto y te orientará sobre los pasos a seguir para iniciar una colaboración.',
+  },
+  {
+    q: '¿En qué comunas o regiones trabajan?',
+    a: 'Operamos principalmente en la Región Metropolitana de Santiago. Proyectos como NeoYungay (Santiago) y NeoBrisas (La Cisterna) son ejemplos de nuestra presencia en distintas comunas.',
+  },
+  {
+    q: '¿Cuánto tiempo toma un proyecto de construcción típico?',
+    a: 'El plazo varía según la escala y complejidad del proyecto. En cada caso definimos un cronograma detallado y nos comprometemos a cumplirlo, manteniendo comunicación constante con nuestros socios y clientes.',
+  },
+  {
+    q: '¿Es posible visitar una obra en ejecución?',
+    a: 'Sí, podemos coordinar visitas guiadas a obras en desarrollo, siempre respetando los protocolos de seguridad vigentes. Contáctanos para agendar una visita.',
+  },
+];
+
+const inputCls =
+  'w-full px-4 py-3 border border-border rounded-card bg-white text-text-title placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors';
+
 export default function Contacto() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
+    name: '', email: '', phone: '', subject: '', message: '',
   });
   const [submitted, setSubmitted] = useState(false);
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // Aquí iría la integración con Resend o email service
-    console.log('Form data:', formData);
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
       setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
-    }, 3000);
+    }, 4000);
   };
+
+  const contactCards = [
+    {
+      label: 'Teléfono',
+      value: '+56 9 7987 7883',
+      href: 'tel:+56979877883',
+      icon: (
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
+          d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 0 0 2.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 0 1-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 0 0-1.091-.852H4.5A2.25 2.25 0 0 0 2.25 4.5v2.25Z" />
+      ),
+    },
+    {
+      label: 'Email',
+      value: 'brabanales@rcap.cl',
+      href: 'mailto:brabanales@rcap.cl',
+      icon: (
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
+          d="M21.75 6.75v10.5a2.25 2.25 0 0 1-2.25 2.25h-15a2.25 2.25 0 0 1-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0 0 19.5 4.5h-15a2.25 2.25 0 0 0-2.25 2.25m19.5 0v.243a2.25 2.25 0 0 1-1.07 1.916l-7.5 4.615a2.25 2.25 0 0 1-2.36 0L3.32 8.91a2.25 2.25 0 0 1-1.07-1.916V6.75" />
+      ),
+    },
+    {
+      label: 'Ubicación',
+      value: 'Región Metropolitana, Santiago',
+      href: null,
+      icon: (
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
+          d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" />
+      ),
+    },
+    {
+      label: 'Horario',
+      value: 'Lun–Vie 9:00–18:00 · Sáb 10:00–14:00',
+      href: null,
+      icon: (
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
+          d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+      ),
+    },
+  ];
 
   return (
     <>
-      {/* Header */}
-      <section className="bg-gradient-to-r from-primary to-primary/90 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-text-inverse">Contacto</h1>
-          <p className="text-lg text-text-inverse_secondary">Estamos aquí para ayudarte. Cuéntanos sobre tu proyecto</p>
+      {/* ===== Banner ===== */}
+      <section className="relative h-[280px] md:h-[340px] flex items-center justify-center overflow-hidden">
+        <img src="/NOSOTROS ARRIBA.png" alt="Contacto" className="absolute inset-0 w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-dark/70" />
+        <div className="relative text-center px-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">Contáctanos</h1>
+          <p className="text-lg text-text-inverse_secondary max-w-xl mx-auto">
+            Cuéntanos sobre tu proyecto y te responderemos a la brevedad
+          </p>
         </div>
       </section>
 
-      {/* Contenido */}
-      <section className="py-section bg-background-alt">
+      {/* ===== Tarjetas de contacto ===== */}
+      <section className="py-14 bg-background-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-12">
-            {/* Información de contacto */}
-            <div>
-              <h2 className="text-2xl font-bold mb-6 text-text-title">Información de Contacto</h2>
-              <div className="space-y-6">
-                <div className="bg-background-surface p-4 rounded-card border border-border">
-                  <h3 className="font-bold text-text-title mb-2">📞 Teléfono</h3>
-                  <a href="tel:+56979877883" className="text-accent hover:text-accent-hover font-semibold">
-                    +56 9 7987 7883
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {contactCards.map((c) => (
+              <div
+                key={c.label}
+                className="bg-white rounded-card border border-border p-6 text-center hover:shadow-card transition-shadow group"
+              >
+                <div className="w-12 h-12 rounded-full bg-accent-soft flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
+                  <svg className="w-6 h-6 text-accent-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {c.icon}
+                  </svg>
+                </div>
+                <p className="text-xs font-bold uppercase tracking-wide text-text-secondary mb-2">{c.label}</p>
+                {c.href ? (
+                  <a href={c.href} className="text-text-title font-semibold hover:text-accent-hover transition-colors text-sm">
+                    {c.value}
                   </a>
-                </div>
-                <div className="bg-background-surface p-4 rounded-card border border-border">
-                  <h3 className="font-bold text-text-title mb-2">📧 Email</h3>
-                  <a href="mailto:brabanales@rcap.cl" className="text-accent hover:text-accent-hover font-semibold break-all">
-                    brabanales@rcap.cl
-                  </a>
-                </div>
-                <div className="bg-background-surface p-4 rounded-card border border-border">
-                  <h3 className="font-bold text-text-title mb-2">📍 Ubicación</h3>
-                  <p className="text-text-base">
-                    Región Metropolitana<br />
-                    Santiago, Chile
-                  </p>
-                </div>
-                <div className="bg-background-surface p-4 rounded-card border border-border">
-                  <h3 className="font-bold text-text-title mb-2">🕐 Horario</h3>
-                  <p className="text-text-base">
-                    Lunes - Viernes: 9:00 - 18:00<br />
-                    <span className="text-text-secondary">Sábado: 10:00 - 14:00</span>
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Formulario */}
-            <div className="md:col-span-2">
-              <div className="bg-background-surface p-8 rounded-card border border-border shadow-card">
-                <h2 className="text-2xl font-bold mb-6 text-text-title">Envíanos un Mensaje</h2>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <input
-                      type="text"
-                      name="name"
-                      placeholder="Tu Nombre"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="px-4 py-3 border border-border rounded-button bg-background-surface text-text-title placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
-                    <input
-                      type="email"
-                      name="email"
-                      placeholder="Tu Email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="px-4 py-3 border border-border rounded-button bg-background-surface text-text-title placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
-                  </div>
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Teléfono (Opcional)"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-border rounded-button bg-background-surface text-text-title placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                  <input
-                    type="text"
-                    name="subject"
-                    placeholder="Asunto"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-border rounded-button bg-background-surface text-text-title placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-primary"
-                  />
-                  <textarea
-                    name="message"
-                    placeholder="Tu Mensaje"
-                    value={formData.message}
-                    onChange={handleChange}
-                    required
-                    rows={6}
-                    className="w-full px-4 py-3 border border-border rounded-button bg-background-surface text-text-title placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-primary resize-none"
-                  />
-                  <button
-                    type="submit"
-                    className="w-full bg-primary hover:bg-primary-hover text-white px-6 py-3 rounded-button font-semibold transition-colors"
-                  >
-                    Enviar Mensaje
-                  </button>
-                </form>
-
-                {submitted && (
-                  <div className="mt-4 p-4 bg-green-50 border border-green-200 text-green-700 rounded-button">
-                    ✓ Mensaje enviado correctamente. Nos pondremos en contacto pronto.
-                  </div>
+                ) : (
+                  <p className="text-text-title font-semibold text-sm">{c.value}</p>
                 )}
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Ubicación */}
+      {/* ===== Formulario ===== */}
+      <section className="py-section bg-background-alt">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-title inline-block">
+              Envíanos un <span className="text-accent-hover">Mensaje</span>
+            </h2>
+            <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-4" />
+          </div>
+
+          <div className="bg-white rounded-card border border-border shadow-card p-8 md:p-10">
+            {submitted ? (
+              <div className="text-center py-12">
+                <div className="w-16 h-16 rounded-full bg-accent-soft flex items-center justify-center mx-auto mb-4">
+                  <svg className="w-8 h-8 text-accent-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-text-title mb-2">¡Mensaje enviado!</h3>
+                <p className="text-text-base">Nos pondremos en contacto a la brevedad.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-semibold text-text-title mb-1.5">Nombre completo *</label>
+                    <input type="text" name="name" placeholder="Juan Pérez" value={formData.name} onChange={handleChange} required className={inputCls} />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-text-title mb-1.5">Email *</label>
+                    <input type="email" name="email" placeholder="juan@ejemplo.cl" value={formData.email} onChange={handleChange} required className={inputCls} />
+                  </div>
+                </div>
+                <div className="grid md:grid-cols-2 gap-5">
+                  <div>
+                    <label className="block text-sm font-semibold text-text-title mb-1.5">Teléfono <span className="text-text-light font-normal">(opcional)</span></label>
+                    <input type="tel" name="phone" placeholder="+56 9 xxxx xxxx" value={formData.phone} onChange={handleChange} className={inputCls} />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-text-title mb-1.5">Asunto *</label>
+                    <select name="subject" value={formData.subject} onChange={handleChange} required className={inputCls}>
+                      <option value="">Selecciona un tema</option>
+                      <option>Información general</option>
+                      <option>Alianza comercial</option>
+                      <option>Visita a proyecto</option>
+                      <option>Trabajo con nosotros</option>
+                      <option>Otro</option>
+                    </select>
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-sm font-semibold text-text-title mb-1.5">Mensaje *</label>
+                  <textarea name="message" placeholder="Cuéntanos sobre tu consulta o proyecto…" value={formData.message} onChange={handleChange} required rows={6} className={inputCls + ' resize-none'} />
+                </div>
+                <button type="submit" className="w-full bg-accent hover:bg-accent-hover text-dark font-bold py-3.5 rounded-card transition-colors text-sm uppercase tracking-wide">
+                  Enviar Mensaje
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== Preguntas Frecuentes ===== */}
       <section className="py-section bg-background-surface">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-2xl font-bold mb-6 text-center text-text-title">Ubicación</h2>
-          <div className="bg-primary/10 h-96 rounded-card flex items-center justify-center border border-border">
-            <div className="text-center">
-              <p className="text-text-light text-lg mb-2">Región Metropolitana, Santiago</p>
-              <p className="text-text-secondary">Mapa de ubicación (Placeholder)</p>
-            </div>
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-title inline-block">
+              Preguntas <span className="text-accent-hover">Frecuentes</span>
+            </h2>
+            <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-4" />
+          </div>
+          <div className="space-y-3">
+            {faqs.map((faq, i) => (
+              <div key={i} className="bg-white rounded-card border border-border overflow-hidden">
+                <button
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-background-alt transition-colors"
+                >
+                  <span className="font-semibold text-text-title pr-4">{faq.q}</span>
+                  <svg
+                    className={`w-5 h-5 text-accent flex-shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`}
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                  </svg>
+                </button>
+                {openFaq === i && (
+                  <div className="px-6 pb-5 text-text-base text-sm leading-relaxed border-t border-border pt-4">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </section>

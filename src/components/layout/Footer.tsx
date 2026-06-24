@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
             <div className="bg-white rounded-card inline-flex p-3 mb-4">
               <img
-                src="/LOGO EMRPESA.png"
+                src="/30ee6226e_logo_puertas.png"
                 alt="Constructora Puerta del Sol"
                 className="h-10 w-auto object-contain"
               />

@@ -20,7 +20,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <img
-              src="/LOGO EMRPESA.png"
+              src="/30ee6226e_logo_puertas.png"
               alt="Constructora Puerta del Sol"
               className="h-16 w-auto object-contain"
             />

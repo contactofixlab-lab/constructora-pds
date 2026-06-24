@@ -42,11 +42,6 @@ export default function Proyectos() {
             Desarrollos inmobiliarios que combinan calidad, ubicación y diseño
           </p>
         </div>
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] rotate-180">
-          <svg className="relative block w-full h-[50px]" viewBox="0 0 1440 50" preserveAspectRatio="none">
-            <path fill="var(--color-background-surface)" d="M0,25 C240,50 480,0 720,12 C960,25 1200,50 1440,18 L1440,0 L0,0 Z" />
-          </svg>
-        </div>
       </section>
 
       {/* ===== Proyectos ===== */}
