@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import FeaturedProjects from '@/components/FeaturedProjects';
+import FadeIn from '@/components/FadeIn';
 
 export default function Home() {
   const servicios = [
@@ -78,27 +79,35 @@ export default function Home() {
     <>
       {/* ===== HERO ===== */}
       <section className="relative bg-dark text-white overflow-hidden">
-        <img src="/hero-construccion.svg" alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-dark/70" />
+        <img src="/NOSOTROS ARRIBA.png" alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover object-center" />
+        <div className="absolute inset-0 bg-dark/60" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-40 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-text-inverse">
+          <h1
+            className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-text-inverse"
+            style={{ animation: 'fadeUp 0.9s ease both' }}
+          >
             Construimos el futuro que <span className="text-accent">imaginas</span>
           </h1>
-          <p className="text-lg text-text-inverse_secondary mb-10 max-w-2xl mx-auto">
+          <p
+            className="text-lg text-text-inverse_secondary mb-10 max-w-2xl mx-auto"
+            style={{ animation: 'fadeUp 0.9s ease 0.25s both' }}
+          >
             Desarrollamos proyectos de construcción de alto estándar, con calidad,
             cumplimiento y confianza en cada etapa del proceso.
           </p>
-          <Link
-            href="/proyectos"
-            className="inline-block bg-accent hover:bg-accent-hover text-dark px-8 py-3.5 rounded-button font-semibold transition-colors"
-          >
-            Ver Proyectos
-          </Link>
+          <div style={{ animation: 'fadeUp 0.9s ease 0.45s both' }}>
+            <Link
+              href="/proyectos"
+              className="inline-block bg-accent hover:bg-accent-hover text-dark px-8 py-3.5 rounded-button font-semibold transition-colors"
+            >
+              Ver Proyectos
+            </Link>
+          </div>
         </div>
       </section>
 
       {/* ===== POR QUÉ ELEGIRNOS ===== */}
-      <section className="py-section bg-background-surface">
+      <section className="py-section bg-background-default">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold text-text-title inline-block">
@@ -106,20 +115,39 @@ export default function Home() {
             </h2>
             <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-4" />
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {razones.map((razon) => (
-              <div
-                key={razon.titulo}
-                className="bg-background-surface rounded-card border border-border p-8 text-center hover:shadow-card hover:-translate-y-1 transition-all"
-              >
-                <div className="w-14 h-14 rounded-card bg-accent-soft flex items-center justify-center mx-auto mb-5">
-                  <svg className="w-7 h-7 text-accent-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    {razon.icon}
-                  </svg>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {razones.map((razon, i) => (
+              <FadeIn key={razon.titulo} delay={i * 120} className="h-full">
+                <div className="group relative overflow-hidden rounded-2xl border border-border bg-white p-8 flex flex-col hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 cursor-default min-h-[340px] h-full">
+                  {/* Línea superior animada */}
+                  <div className="absolute top-0 left-0 h-1 w-0 bg-accent group-hover:w-full transition-all duration-500 rounded-b-full" />
+
+                  {/* Número decorativo fondo */}
+                  <span className="absolute bottom-5 right-5 text-8xl font-black leading-none select-none text-border/30 group-hover:text-accent/15 transition-colors duration-500">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+
+                  {/* Ícono */}
+                  <div className="w-16 h-16 rounded-2xl bg-accent-soft flex items-center justify-center mb-6 group-hover:bg-accent group-hover:scale-110 transition-all duration-300 flex-shrink-0">
+                    <svg
+                      className="w-8 h-8 text-accent-hover group-hover:text-dark transition-colors duration-300"
+                      fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    >
+                      {razon.icon}
+                    </svg>
+                  </div>
+
+                  {/* Título */}
+                  <h3 className="text-xl font-bold text-text-title mb-3 group-hover:text-primary transition-colors duration-300">
+                    {razon.titulo}
+                  </h3>
+
+                  {/* Descripción */}
+                  <p className="text-text-base text-sm leading-relaxed flex-1 relative z-10">
+                    {razon.texto}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-text-title mb-3">{razon.titulo}</h3>
-                <p className="text-text-base text-sm leading-relaxed">{razon.texto}</p>
-              </div>
+              </FadeIn>
             ))}
           </div>
         </div>
@@ -136,24 +164,24 @@ export default function Home() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
-            <div>
+            <FadeIn delay={0}>
               <div className="text-4xl md:text-5xl font-bold text-accent mb-2">+100.000</div>
               <div className="text-text-inverse_secondary uppercase tracking-wide text-xs font-semibold">
                 Metros cuadrados construidos
               </div>
-            </div>
-            <div>
+            </FadeIn>
+            <FadeIn delay={150}>
               <div className="text-4xl md:text-5xl font-bold text-accent mb-2">6</div>
               <div className="text-text-inverse_secondary uppercase tracking-wide text-xs font-semibold">
                 Alianzas
               </div>
-            </div>
-            <div>
+            </FadeIn>
+            <FadeIn delay={300}>
               <div className="text-4xl md:text-5xl font-bold text-accent mb-2">+10</div>
               <div className="text-text-inverse_secondary uppercase tracking-wide text-xs font-semibold">
                 Años de experiencia
               </div>
-            </div>
+            </FadeIn>
           </div>
         </div>
 
@@ -170,24 +198,26 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             {/* Imagen + badge */}
-            <div className="relative">
-              <div className="rounded-card h-80 md:h-96 overflow-hidden border border-border">
-                <img
-                  src="/obra-construccion.svg"
-                  alt="Edificio en construcción"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-2 md:left-6 bg-accent text-dark rounded-card px-6 py-4 shadow-card">
-                <div className="text-3xl font-bold leading-none">+10</div>
-                <div className="text-xs font-semibold uppercase tracking-wide mt-1">
-                  Años de experiencia
+            <FadeIn direction="left">
+              <div className="relative">
+                <div className="rounded-card h-80 md:h-96 overflow-hidden border border-border">
+                  <img
+                    src="/obra-construccion.svg"
+                    alt="Edificio en construcción"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute -bottom-6 -left-2 md:left-6 bg-accent text-dark rounded-card px-6 py-4 shadow-card">
+                  <div className="text-3xl font-bold leading-none">+10</div>
+                  <div className="text-xs font-semibold uppercase tracking-wide mt-1">
+                    Años de experiencia
+                  </div>
                 </div>
               </div>
-            </div>
+            </FadeIn>
 
             {/* Texto + checklist */}
-            <div>
+            <FadeIn direction="right">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 text-text-title">
                 Construyendo con <span className="text-accent">Pasión</span> y Excelencia
               </h2>
@@ -215,7 +245,7 @@ export default function Home() {
                 Conoce a Nuestro Equipo
                 <span>→</span>
               </Link>
-            </div>
+            </FadeIn>
           </div>
         </div>
       </section>

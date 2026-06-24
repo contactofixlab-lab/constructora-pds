@@ -12,7 +12,7 @@ export default function Footer() {
             <img
               src="/30ee6226e_logo_puertas.png"
               alt="Constructora Puerta del Sol"
-              className="h-16 w-auto object-contain mb-4 brightness-0 invert"
+              className="h-28 w-auto object-contain mb-5"
             />
             <p className="text-text-inverse_secondary text-sm max-w-xs">
               Desarrollamos proyectos de construcción de alto estándar, con calidad y compromiso en
