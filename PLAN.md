@@ -83,7 +83,7 @@
 ## ⬜ FASE 4: QA & VERIFICACIÓN (PENDIENTE)
 
 - [x] Build sin errores (verificado en cada sesión)
-- [ ] Responsive testing completo (mobile 375px / tablet 768px / desktop 1440px)
+- [x] Responsive testing completo — fixes aplicados: logo responsive (h-14→lg:h-32), hero padding mobile, cards min-height, badge nosotros, gap columnas
 - [ ] Links internos verificados en todas las páginas
 - [ ] Formulario de contacto — integrar **Resend** para envío real de email
 - [ ] Meta tags y SEO básico (`<title>`, `<meta description>`, Open Graph)
