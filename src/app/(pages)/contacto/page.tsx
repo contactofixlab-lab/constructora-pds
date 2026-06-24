@@ -26,7 +26,7 @@ const faqs = [
 ];
 
 const inputCls =
-  'w-full px-4 py-3 border border-border rounded-card bg-white text-text-title placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors';
+  'w-full px-4 py-3 border border-border rounded-card bg-background-alt text-text-title placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors text-sm';
 
 export default function Contacto() {
   const [formData, setFormData] = useState({
@@ -48,7 +48,7 @@ export default function Contacto() {
     }, 4000);
   };
 
-  const contactCards = [
+  const contactItems = [
     {
       label: 'Teléfono',
       value: '+56 9 7987 7883',
@@ -69,7 +69,7 @@ export default function Contacto() {
     },
     {
       label: 'Ubicación',
-      value: 'Región Metropolitana, Santiago',
+      value: 'Santiago, Región Metropolitana',
       href: null,
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
@@ -78,7 +78,8 @@ export default function Contacto() {
     },
     {
       label: 'Horario',
-      value: 'Lun–Vie 9:00–18:00 · Sáb 10:00–14:00',
+      value: 'Lun–Vie 9:00–18:00',
+      value2: 'Sáb 10:00–14:00',
       href: null,
       icon: (
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8}
@@ -101,93 +102,107 @@ export default function Contacto() {
         </div>
       </section>
 
-      {/* ===== Tarjetas de contacto ===== */}
-      <section className="py-14 bg-background-surface">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {contactCards.map((c) => (
-              <div
-                key={c.label}
-                className="bg-white rounded-card border border-border p-6 text-center hover:shadow-card transition-shadow group"
-              >
-                <div className="w-12 h-12 rounded-full bg-accent-soft flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
-                  <svg className="w-6 h-6 text-accent-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    {c.icon}
-                  </svg>
-                </div>
-                <p className="text-xs font-bold uppercase tracking-wide text-text-secondary mb-2">{c.label}</p>
-                {c.href ? (
-                  <a href={c.href} className="text-text-title font-semibold hover:text-accent-hover transition-colors text-sm">
-                    {c.value}
-                  </a>
-                ) : (
-                  <p className="text-text-title font-semibold text-sm">{c.value}</p>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ===== Formulario ===== */}
+      {/* ===== Formulario + Info lateral ===== */}
       <section className="py-section bg-background-alt">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl md:text-4xl font-bold text-text-title inline-block">
-              Envíanos un <span className="text-accent-hover">Mensaje</span>
-            </h2>
-            <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-4" />
-          </div>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-card overflow-hidden shadow-card grid md:grid-cols-5">
 
-          <div className="bg-white rounded-card border border-border shadow-card p-8 md:p-10">
-            {submitted ? (
-              <div className="text-center py-12">
-                <div className="w-16 h-16 rounded-full bg-accent-soft flex items-center justify-center mx-auto mb-4">
-                  <svg className="w-8 h-8 text-accent-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="m4.5 12.75 6 6 9-13.5" />
-                  </svg>
+            {/* ── Sidebar de contacto ── */}
+            <div className="md:col-span-2 bg-primary p-8 md:p-10 flex flex-col justify-between">
+              <div>
+                <h2 className="text-2xl font-bold text-white mb-2">Información de Contacto</h2>
+                <div className="w-10 h-1 bg-accent rounded-full mb-8" />
+
+                <div className="space-y-7">
+                  {contactItems.map((item) => (
+                    <div key={item.label} className="flex items-start gap-4">
+                      <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          {item.icon}
+                        </svg>
+                      </div>
+                      <div>
+                        <p className="text-accent text-xs font-bold uppercase tracking-wide mb-1">{item.label}</p>
+                        {item.href ? (
+                          <a href={item.href} className="text-white hover:text-accent transition-colors font-medium text-sm">
+                            {item.value}
+                          </a>
+                        ) : (
+                          <>
+                            <p className="text-white font-medium text-sm">{item.value}</p>
+                            {'value2' in item && item.value2 && (
+                              <p className="text-white/60 text-sm">{item.value2}</p>
+                            )}
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <h3 className="text-xl font-bold text-text-title mb-2">¡Mensaje enviado!</h3>
-                <p className="text-text-base">Nos pondremos en contacto a la brevedad.</p>
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div className="grid md:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-sm font-semibold text-text-title mb-1.5">Nombre completo *</label>
-                    <input type="text" name="name" placeholder="Juan Pérez" value={formData.name} onChange={handleChange} required className={inputCls} />
+
+              {/* Decoración inferior */}
+              <div className="mt-12 pt-8 border-t border-white/10">
+                <p className="text-white/50 text-xs">Constructora Puerta del Sol · Santiago, Chile</p>
+              </div>
+            </div>
+
+            {/* ── Formulario ── */}
+            <div className="md:col-span-3 bg-white p-8 md:p-10">
+              <h2 className="text-2xl font-bold text-text-title mb-1">
+                Envíanos un <span className="text-accent-hover">Mensaje</span>
+              </h2>
+              <p className="text-text-secondary text-sm mb-7">Completa el formulario y te responderemos pronto.</p>
+
+              {submitted ? (
+                <div className="flex flex-col items-center justify-center py-16">
+                  <div className="w-16 h-16 rounded-full bg-accent-soft flex items-center justify-center mb-4">
+                    <svg className="w-8 h-8 text-accent-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
                   </div>
-                  <div>
-                    <label className="block text-sm font-semibold text-text-title mb-1.5">Email *</label>
-                    <input type="email" name="email" placeholder="juan@ejemplo.cl" value={formData.email} onChange={handleChange} required className={inputCls} />
-                  </div>
+                  <h3 className="text-xl font-bold text-text-title mb-2">¡Mensaje enviado!</h3>
+                  <p className="text-text-base text-sm">Nos pondremos en contacto a la brevedad.</p>
                 </div>
-                <div className="grid md:grid-cols-2 gap-5">
-                  <div>
-                    <label className="block text-sm font-semibold text-text-title mb-1.5">Teléfono <span className="text-text-light font-normal">(opcional)</span></label>
-                    <input type="tel" name="phone" placeholder="+56 9 xxxx xxxx" value={formData.phone} onChange={handleChange} className={inputCls} />
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-text-title uppercase tracking-wide mb-1.5">Nombre *</label>
+                      <input type="text" name="name" placeholder="Juan Pérez" value={formData.name} onChange={handleChange} required className={inputCls} />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-text-title uppercase tracking-wide mb-1.5">Email *</label>
+                      <input type="email" name="email" placeholder="juan@ejemplo.cl" value={formData.email} onChange={handleChange} required className={inputCls} />
+                    </div>
+                  </div>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-bold text-text-title uppercase tracking-wide mb-1.5">Teléfono <span className="normal-case font-normal text-text-light">(opcional)</span></label>
+                      <input type="tel" name="phone" placeholder="+56 9 xxxx xxxx" value={formData.phone} onChange={handleChange} className={inputCls} />
+                    </div>
+                    <div>
+                      <label className="block text-xs font-bold text-text-title uppercase tracking-wide mb-1.5">Asunto *</label>
+                      <select name="subject" value={formData.subject} onChange={handleChange} required className={inputCls}>
+                        <option value="">Selecciona un tema</option>
+                        <option>Información general</option>
+                        <option>Alianza comercial</option>
+                        <option>Visita a proyecto</option>
+                        <option>Trabajo con nosotros</option>
+                        <option>Otro</option>
+                      </select>
+                    </div>
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-text-title mb-1.5">Asunto *</label>
-                    <select name="subject" value={formData.subject} onChange={handleChange} required className={inputCls}>
-                      <option value="">Selecciona un tema</option>
-                      <option>Información general</option>
-                      <option>Alianza comercial</option>
-                      <option>Visita a proyecto</option>
-                      <option>Trabajo con nosotros</option>
-                      <option>Otro</option>
-                    </select>
+                    <label className="block text-xs font-bold text-text-title uppercase tracking-wide mb-1.5">Mensaje *</label>
+                    <textarea name="message" placeholder="Cuéntanos sobre tu consulta o proyecto…" value={formData.message} onChange={handleChange} required rows={6} className={inputCls + ' resize-none'} />
                   </div>
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold text-text-title mb-1.5">Mensaje *</label>
-                  <textarea name="message" placeholder="Cuéntanos sobre tu consulta o proyecto…" value={formData.message} onChange={handleChange} required rows={6} className={inputCls + ' resize-none'} />
-                </div>
-                <button type="submit" className="w-full bg-accent hover:bg-accent-hover text-dark font-bold py-3.5 rounded-card transition-colors text-sm uppercase tracking-wide">
-                  Enviar Mensaje
-                </button>
-              </form>
-            )}
+                  <button type="submit" className="w-full bg-accent hover:bg-accent-hover text-dark font-bold py-3.5 rounded-card transition-colors text-sm uppercase tracking-wider">
+                    Enviar Mensaje
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
         </div>
       </section>
@@ -208,7 +223,7 @@ export default function Contacto() {
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   className="w-full flex items-center justify-between px-6 py-4 text-left hover:bg-background-alt transition-colors"
                 >
-                  <span className="font-semibold text-text-title pr-4">{faq.q}</span>
+                  <span className="font-semibold text-text-title pr-4 text-sm">{faq.q}</span>
                   <svg
                     className={`w-5 h-5 text-accent flex-shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`}
                     fill="none" stroke="currentColor" viewBox="0 0 24 24"

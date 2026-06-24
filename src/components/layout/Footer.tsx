@@ -9,13 +9,11 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-10 mb-10">
           {/* Logo + descripción */}
           <div>
-            <div className="bg-white rounded-card inline-flex p-3 mb-4">
-              <img
-                src="/30ee6226e_logo_puertas.png"
-                alt="Constructora Puerta del Sol"
-                className="h-10 w-auto object-contain"
-              />
-            </div>
+            <img
+              src="/30ee6226e_logo_puertas.png"
+              alt="Constructora Puerta del Sol"
+              className="h-16 w-auto object-contain mb-4 brightness-0 invert"
+            />
             <p className="text-text-inverse_secondary text-sm max-w-xs">
               Desarrollamos proyectos de construcción de alto estándar, con calidad y compromiso en
               cada etapa.

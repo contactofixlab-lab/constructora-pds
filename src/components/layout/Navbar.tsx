@@ -22,7 +22,7 @@ export default function Navbar() {
             <img
               src="/30ee6226e_logo_puertas.png"
               alt="Constructora Puerta del Sol"
-              className="h-16 w-auto object-contain"
+              className="h-20 w-auto object-contain"
             />
           </Link>
 
