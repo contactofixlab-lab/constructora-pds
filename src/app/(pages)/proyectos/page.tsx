@@ -9,7 +9,7 @@ export default function Proyectos() {
       ubicacion: 'La Cisterna',
       descripcion: 'Proyecto que combina la tranquilidad deseada con una conectividad insuperable.',
       departamentos: 108,
-      image: 'https://media.base44.com/images/public/69a09e53eec4ebfa03c40bec/89f873117_FACHADA_NEOBRISAS.jpg'
+      image: '/89f873117_FACHADA_NEOBRISAS.jpg'
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ export default function Proyectos() {
       ubicacion: 'Santiago',
       descripcion: 'Un proyecto con esencia de barrio, conectando a las personas con un entorno único.',
       departamentos: 105,
-      image: 'https://media.base44.com/images/public/69a09e53eec4ebfa03c40bec/1c4a95389_Edificio__NeoYungay.jpg'
+      image: '/1c4a95389_Edificio__NeoYungay.jpg'
     },
   ];
 

@@ -40,6 +40,13 @@ export default function Home() {
     },
   ];
 
+  const socios = [
+    { nombre: 'Sodimac', src: '/ee3be69ef_logo_sodimac.svg' },
+    { nombre: 'Iencinas', src: '/iencinas logo.png' },
+    { nombre: 'NeoYungay', src: '/NEOYUNGAY NEGRO.png' },
+    { nombre: 'NeoBrisas', src: '/Logo-NeoBrisas1.png' },
+  ];
+
   const proyectos = [
     {
       id: 1,
@@ -48,7 +55,7 @@ export default function Home() {
       comuna: 'La Cisterna',
       descripcion: 'Proyecto que combina la tranquilidad deseada con una conectividad insuperable.',
       departamentos: 108,
-      image: 'https://media.base44.com/images/public/69a09e53eec4ebfa03c40bec/89f873117_FACHADA_NEOBRISAS.jpg',
+      image: '/89f873117_FACHADA_NEOBRISAS.jpg',
     },
     {
       id: 2,
@@ -57,7 +64,25 @@ export default function Home() {
       comuna: 'Santiago',
       descripcion: 'Un proyecto con esencia de barrio, que conecta a las personas con un entorno único.',
       departamentos: 105,
-      image: 'https://media.base44.com/images/public/69a09e53eec4ebfa03c40bec/1c4a95389_Edificio__NeoYungay.jpg',
+      image: '/1c4a95389_Edificio__NeoYungay.jpg',
+    },
+  ];
+
+  const comentarios = [
+    {
+      nombre: 'Cliente Satisfecho',
+      rol: 'Propietario',
+      texto: 'Excelente trabajo y cumplimiento de plazos. La comunicación durante todo el proceso fue clara y constante.',
+    },
+    {
+      nombre: 'Inversionista',
+      rol: 'Socio Comercial',
+      texto: 'Profesionalismo y calidad en cada etapa. Un equipo confiable con el que da gusto trabajar.',
+    },
+    {
+      nombre: 'Familia Compradora',
+      rol: 'Propietario',
+      texto: 'Nos entregaron un hogar de gran calidad, tal como se prometió. Totalmente recomendados.',
     },
   ];
 
@@ -65,34 +90,89 @@ export default function Home() {
     <>
       {/* ===== HERO ===== */}
       <section className="relative bg-dark text-white overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark to-primary/40" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-36">
-          <div className="max-w-3xl">
-            <span className="inline-block text-accent font-semibold tracking-wide uppercase text-sm mb-4">
-              Constructora PDS
-            </span>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-text-inverse">
-              Construyendo con <span className="text-accent">Pasión</span> y Excelencia
-            </h1>
-            <p className="text-lg text-text-inverse_secondary mb-8 max-w-2xl">
-              Desarrollamos proyectos de construcción de alto estándar, enfocados en la calidad,
-              el cumplimiento y la confianza en cada etapa del proceso.
-            </p>
-            <div className="flex gap-4 flex-wrap">
-              <Link
-                href="/proyectos"
-                className="bg-accent hover:bg-accent-hover text-dark px-7 py-3 rounded-button font-semibold transition-colors"
+        <div className="absolute inset-0 bg-gradient-to-br from-dark via-dark to-primary/50" />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-28 md:py-40 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-text-inverse">
+            Construimos el futuro que <span className="text-accent">imaginas</span>
+          </h1>
+          <p className="text-lg text-text-inverse_secondary mb-10 max-w-2xl mx-auto">
+            Desarrollamos proyectos de construcción de alto estándar, con calidad,
+            cumplimiento y confianza en cada etapa del proceso.
+          </p>
+          <Link
+            href="/proyectos"
+            className="inline-block bg-accent hover:bg-accent-hover text-dark px-8 py-3.5 rounded-button font-semibold transition-colors"
+          >
+            Ver Proyectos
+          </Link>
+        </div>
+      </section>
+
+      {/* ===== POR QUÉ ELEGIRNOS ===== */}
+      <section className="py-section bg-background-surface">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-title inline-block">
+              ¿Por qué elegirnos?
+            </h2>
+            <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-4" />
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {razones.map((razon) => (
+              <div
+                key={razon.titulo}
+                className="bg-background-surface rounded-card border border-border p-8 text-center hover:shadow-card hover:-translate-y-1 transition-all"
               >
-                Ver Proyectos
-              </Link>
-              <Link
-                href="/contacto"
-                className="border border-white/30 hover:bg-white/10 text-white px-7 py-3 rounded-button font-semibold transition-colors"
-              >
-                Contáctanos
-              </Link>
+                <div className="w-14 h-14 rounded-card bg-accent-soft flex items-center justify-center mx-auto mb-5">
+                  <svg className="w-7 h-7 text-accent-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    {razon.icon}
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-text-title mb-3">{razon.titulo}</h3>
+                <p className="text-text-base text-sm leading-relaxed">{razon.texto}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== STATS (banda oscura ondulada) ===== */}
+      <section className="relative bg-dark py-20">
+        {/* onda superior */}
+        <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] -translate-y-px">
+          <svg className="relative block w-full h-[60px]" viewBox="0 0 1440 60" preserveAspectRatio="none">
+            <path fill="var(--color-background-surface)" d="M0,32 C240,64 480,0 720,16 C960,32 1200,64 1440,24 L1440,0 L0,0 Z" />
+          </svg>
+        </div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
+            <div>
+              <div className="text-4xl md:text-5xl font-bold text-accent mb-2">+100.000</div>
+              <div className="text-text-inverse_secondary uppercase tracking-wide text-xs font-semibold">
+                Metros cuadrados construidos
+              </div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold text-accent mb-2">6</div>
+              <div className="text-text-inverse_secondary uppercase tracking-wide text-xs font-semibold">
+                Alianzas
+              </div>
+            </div>
+            <div>
+              <div className="text-4xl md:text-5xl font-bold text-accent mb-2">+10</div>
+              <div className="text-text-inverse_secondary uppercase tracking-wide text-xs font-semibold">
+                Años de experiencia
+              </div>
             </div>
           </div>
+        </div>
+
+        {/* onda inferior */}
+        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] rotate-180 translate-y-px">
+          <svg className="relative block w-full h-[60px]" viewBox="0 0 1440 60" preserveAspectRatio="none">
+            <path fill="var(--color-background-surface)" d="M0,32 C240,64 480,0 720,16 C960,32 1200,64 1440,24 L1440,0 L0,0 Z" />
+          </svg>
         </div>
       </section>
 
@@ -147,87 +227,42 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== POR QUÉ ELEGIRNOS ===== */}
-      <section className="py-section bg-background-default">
+      {/* ===== SOCIOS COMERCIALES ===== */}
+      <section className="py-20 bg-background-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-14">
+          <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-text-title inline-block">
-              ¿Por qué elegirnos?
+              Socios Comerciales
             </h2>
             <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-4" />
           </div>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {razones.map((razon) => (
-              <div
-                key={razon.titulo}
-                className="bg-background-surface rounded-card border border-border p-8 text-center hover:shadow-card hover:-translate-y-1 transition-all"
-              >
-                <div className="w-14 h-14 rounded-card bg-accent-soft flex items-center justify-center mx-auto mb-5">
-                  <svg className="w-7 h-7 text-accent-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    {razon.icon}
-                  </svg>
-                </div>
-                <h3 className="text-xl font-bold text-text-title mb-3">{razon.titulo}</h3>
-                <p className="text-text-base text-sm leading-relaxed">{razon.texto}</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-8">
+            {socios.map((socio) => (
+              <div key={socio.nombre} className="h-12 flex items-center">
+                <img
+                  src={socio.src}
+                  alt={socio.nombre}
+                  className="max-h-12 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all"
+                />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ===== STATS (banda oscura ondulada) ===== */}
-      <section className="relative bg-dark py-20 my-2">
-        {/* onda superior */}
-        <div className="absolute top-0 left-0 w-full overflow-hidden leading-[0] -translate-y-px">
-          <svg className="relative block w-full h-[60px]" viewBox="0 0 1440 60" preserveAspectRatio="none">
-            <path fill="var(--color-background-default)" d="M0,32 C240,64 480,0 720,16 C960,32 1200,64 1440,24 L1440,0 L0,0 Z" />
-          </svg>
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-accent mb-2">+100.000</div>
-              <div className="text-text-inverse_secondary uppercase tracking-wide text-xs font-semibold">
-                Metros cuadrados construidos
-              </div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-accent mb-2">6</div>
-              <div className="text-text-inverse_secondary uppercase tracking-wide text-xs font-semibold">
-                Alianzas
-              </div>
-            </div>
-            <div>
-              <div className="text-4xl md:text-5xl font-bold text-accent mb-2">+10</div>
-              <div className="text-text-inverse_secondary uppercase tracking-wide text-xs font-semibold">
-                Años de experiencia
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* onda inferior */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] rotate-180 translate-y-px">
-          <svg className="relative block w-full h-[60px]" viewBox="0 0 1440 60" preserveAspectRatio="none">
-            <path fill="var(--color-background-default)" d="M0,32 C240,64 480,0 720,16 C960,32 1200,64 1440,24 L1440,0 L0,0 Z" />
-          </svg>
-        </div>
-      </section>
-
-      {/* ===== PROYECTOS DESTACADOS ===== */}
-      <section className="py-section bg-background-default">
+      {/* ===== NUESTROS PROYECTOS ===== */}
+      <section className="py-section bg-background-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold text-text-title inline-block">
-              Proyectos Destacados
+              Nuestros <span className="text-accent">Proyectos</span>
             </h2>
             <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-4" />
           </div>
           <div className="grid md:grid-cols-2 gap-8 mb-10">
             {proyectos.map((p) => (
               <Link key={p.id} href={`/proyectos/${p.id}`}>
-                <div className="bg-background-surface rounded-card overflow-hidden shadow-card hover:shadow-lg transition-shadow group">
+                <div className="bg-background-surface rounded-card overflow-hidden shadow-card hover:shadow-lg transition-shadow group border border-border">
                   <div className="h-56 overflow-hidden bg-primary/10">
                     <img
                       src={p.image}
@@ -256,7 +291,7 @@ export default function Home() {
           <div className="text-center">
             <Link
               href="/proyectos"
-              className="inline-block bg-primary hover:bg-primary-hover text-white px-8 py-3 rounded-button font-semibold transition-colors"
+              className="inline-block bg-dark hover:bg-primary text-white px-8 py-3 rounded-button font-semibold transition-colors"
             >
               Ver Todos los Proyectos
             </Link>
@@ -264,22 +299,34 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== CTA FINAL ===== */}
-      <section className="bg-background-surface py-section">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-dark rounded-card px-8 py-14 text-center">
-            <h2 className="text-3xl font-bold mb-4 text-text-inverse">
-              ¿Listo para comenzar tu proyecto?
+      {/* ===== COMENTARIOS ===== */}
+      <section className="py-section bg-background-alt">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h2 className="text-3xl md:text-4xl font-bold text-text-title inline-block">
+              Comentarios
             </h2>
-            <p className="text-lg mb-8 text-text-inverse_secondary max-w-2xl mx-auto">
-              Contáctanos y déjanos ser el brazo constructor que haga realidad tu visión.
-            </p>
-            <Link
-              href="/contacto"
-              className="inline-block bg-accent hover:bg-accent-hover text-dark px-8 py-4 rounded-button font-semibold transition-colors"
-            >
-              Solicitar Cotización
-            </Link>
+            <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-4" />
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {comentarios.map((c, i) => (
+              <div
+                key={i}
+                className="bg-background-surface rounded-card border border-border p-8 hover:shadow-card transition-shadow"
+              >
+                <div className="text-accent text-4xl leading-none mb-4">&ldquo;</div>
+                <p className="text-text-base italic mb-6">{c.texto}</p>
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-full bg-accent-soft flex items-center justify-center text-accent-hover font-bold">
+                    {c.nombre.charAt(0)}
+                  </div>
+                  <div>
+                    <div className="font-bold text-text-title text-sm">{c.nombre}</div>
+                    <div className="text-text-secondary text-xs">{c.rol}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
