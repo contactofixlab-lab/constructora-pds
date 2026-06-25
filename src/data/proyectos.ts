@@ -28,6 +28,26 @@ export const proyectos = [
     image: '/1c4a95389_Edificio__NeoYungay.jpg',
   },
   {
+    id: 'boulevard-santa-rosa',
+    nombre: 'Boulevard Santa Rosa',
+    tipo: 'Residencial / Comercial',
+    status: 'En Construcción',
+    direccion: 'León Prado 515, esquina Av. Santa Rosa',
+    comuna: 'San Miguel',
+    descripcion:
+      'Proyecto residencial y comercial ubicado en un punto estratégico de San Miguel, en la esquina de León Prado con Av. Santa Rosa. Considera departamentos de 1 y 2 dormitorios, locales comerciales y áreas comunes pensadas para la vida urbana y la inversión. Destaca por su conectividad, al estar frente a la futura estación de Metro Línea 9 y cercano a servicios, comercio, salud y educación.',
+    highlights: [
+      'Frente a la futura estación de Metro Línea 9',
+      'Conexión directa con Av. Santa Rosa, Av. Departamental y Gran Avenida',
+      'Proyecto mixto con 95 departamentos y 19 locales comerciales',
+      'Áreas comunes: cowork, gimnasio, sala de cine, zona gamer, salón gourmet y quincho',
+    ],
+    departamentos: 95,
+    bodegas: 71,
+    estacionamientos: 61,
+    image: '/boulevard-santa-rosa.jpg',
+  },
+  {
     id: 'neobrisas',
     nombre: 'NeoBrisas',
     tipo: 'Residencial',
