@@ -1,10 +1,90 @@
 'use client';
 
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useRef, useEffect } from 'react';
 import { contactoInfo, faqs } from '@/data/contacto';
 
 const inputCls =
   'w-full px-4 py-3 border border-border rounded-card bg-background-alt text-text-title placeholder:text-text-light focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors text-sm';
+
+const SUBJECT_OPTIONS = [
+  'Información general',
+  'Alianza comercial',
+  'Visita a proyecto',
+  'Trabajo con nosotros',
+  'Otro',
+];
+
+function CustomSelect({
+  value,
+  onChange,
+}: {
+  value: string;
+  onChange: (val: string) => void;
+}) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, []);
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        onClick={() => setOpen((o) => !o)}
+        className={`w-full px-4 py-3 border rounded-card bg-background-alt transition-colors text-sm flex items-center justify-between text-left ${
+          open
+            ? 'border-accent ring-2 ring-accent outline-none'
+            : 'border-border hover:border-accent/60'
+        } ${value ? 'text-text-title' : 'text-text-light'}`}
+      >
+        <span>{value || 'Selecciona un tema'}</span>
+        <svg
+          className={`w-4 h-4 text-text-light flex-shrink-0 transition-transform duration-200 ${open ? 'rotate-180 text-accent' : ''}`}
+          fill="none" stroke="currentColor" viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+        </svg>
+      </button>
+
+      {open && (
+        <div className="absolute left-0 right-0 top-full mt-1.5 bg-white rounded-card border border-border shadow-card z-20 overflow-hidden py-1">
+          {SUBJECT_OPTIONS.map((opt) => {
+            const selected = value === opt;
+            return (
+              <button
+                key={opt}
+                type="button"
+                onClick={() => { onChange(opt); setOpen(false); }}
+                className={`w-full flex items-center gap-3 px-4 py-2.5 text-sm text-left transition-colors ${
+                  selected
+                    ? 'bg-accent-soft text-accent-hover font-semibold'
+                    : 'text-text-base hover:bg-background-alt hover:text-text-title'
+                }`}
+              >
+                <span className={`w-4 h-4 flex-shrink-0 flex items-center justify-center rounded-full border transition-colors ${
+                  selected ? 'border-accent bg-accent' : 'border-border bg-transparent'
+                }`}>
+                  {selected && (
+                    <svg className="w-2.5 h-2.5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="m4.5 12.75 6 6 9-13.5" />
+                    </svg>
+                  )}
+                </span>
+                {opt}
+              </button>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function Contacto() {
   const [formData, setFormData] = useState({
@@ -13,12 +93,13 @@ export default function Contacto() {
   const [submitted, setSubmitted] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!formData.subject) return;
     setSubmitted(true);
     setTimeout(() => {
       setSubmitted(false);
@@ -161,14 +242,10 @@ export default function Contacto() {
                     </div>
                     <div>
                       <label className="block text-xs font-bold text-text-title uppercase tracking-wide mb-1.5">Asunto *</label>
-                      <select name="subject" value={formData.subject} onChange={handleChange} required className={inputCls}>
-                        <option value="">Selecciona un tema</option>
-                        <option>Información general</option>
-                        <option>Alianza comercial</option>
-                        <option>Visita a proyecto</option>
-                        <option>Trabajo con nosotros</option>
-                        <option>Otro</option>
-                      </select>
+                      <CustomSelect
+                        value={formData.subject}
+                        onChange={(val) => setFormData({ ...formData, subject: val })}
+                      />
                     </div>
                   </div>
                   <div>
