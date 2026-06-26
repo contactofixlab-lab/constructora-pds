@@ -167,30 +167,40 @@ export default function Contacto() {
           <div className="rounded-card overflow-hidden shadow-card grid md:grid-cols-5">
 
             {/* ── Sidebar de contacto ── */}
-            <div className="md:col-span-2 bg-primary p-8 md:p-10 flex flex-col justify-between">
-              <div>
-                <h2 className="text-2xl font-bold text-white mb-2">Información de Contacto</h2>
-                <div className="w-10 h-1 bg-accent rounded-full mb-8" />
+            <div className="md:col-span-2 bg-primary relative overflow-hidden flex flex-col">
+              {/* Decoración geométrica de fondo */}
+              <div className="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-white/[0.03] pointer-events-none" />
+              <div className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-white/[0.03] pointer-events-none" />
+              <div className="absolute top-1/2 right-0 w-32 h-32 rounded-full bg-accent/5 pointer-events-none" />
 
-                <div className="space-y-7">
+              <div className="relative p-8 md:p-10 flex flex-col h-full">
+                {/* Header */}
+                <div className="mb-8">
+                  <span className="text-accent text-xs font-bold uppercase tracking-widest mb-3 block">Estamos aquí para ayudarte</span>
+                  <h2 className="text-2xl font-bold text-white leading-tight">Información de<br/>Contacto</h2>
+                  <div className="w-12 h-0.5 bg-accent rounded-full mt-4" />
+                </div>
+
+                {/* Items */}
+                <div className="space-y-5 flex-1">
                   {contactItems.map((item) => (
-                    <div key={item.label} className="flex items-start gap-4">
-                      <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <div key={item.label} className="flex items-start gap-4 group">
+                      <div className="w-11 h-11 rounded-xl bg-white/10 group-hover:bg-accent/20 flex items-center justify-center flex-shrink-0 transition-colors duration-200">
                         <svg className="w-5 h-5 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           {item.icon}
                         </svg>
                       </div>
-                      <div>
-                        <p className="text-accent text-xs font-bold uppercase tracking-wide mb-1">{item.label}</p>
+                      <div className="min-w-0">
+                        <p className="text-white/50 text-[10px] font-bold uppercase tracking-widest mb-1">{item.label}</p>
                         {item.href ? (
-                          <a href={item.href} className="text-white hover:text-accent transition-colors font-medium text-sm">
+                          <a href={item.href} className="text-white group-hover:text-accent transition-colors font-semibold text-sm break-all">
                             {item.value}
                           </a>
                         ) : (
                           <>
-                            <p className="text-white font-medium text-sm">{item.value}</p>
+                            <p className="text-white font-semibold text-sm">{item.value}</p>
                             {'value2' in item && item.value2 && (
-                              <p className="text-white/60 text-sm">{item.value2}</p>
+                              <p className="text-white/50 text-xs mt-0.5">{item.value2}</p>
                             )}
                           </>
                         )}
@@ -198,11 +208,20 @@ export default function Contacto() {
                     </div>
                   ))}
                 </div>
-              </div>
 
-              {/* Decoración inferior */}
-              <div className="mt-12 pt-8 border-t border-white/10">
-                <p className="text-white/50 text-xs">Constructora Puerta del Sol · Santiago, Chile</p>
+                {/* WhatsApp CTA */}
+                <div className="mt-8 pt-6 border-t border-white/10">
+                  <a
+                    href={contactoInfo.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-3 w-full bg-accent hover:bg-accent-hover text-dark font-bold py-3 rounded-xl transition-colors text-sm"
+                  >
+                    <img src="/468ca5702_whatsapp_icono.png" alt="" className="w-5 h-5 object-contain" />
+                    Escríbenos por WhatsApp
+                  </a>
+                  <p className="text-white/30 text-[11px] text-center mt-3">Constructora Puerta del Sol · Santiago, Chile</p>
+                </div>
               </div>
             </div>
 
