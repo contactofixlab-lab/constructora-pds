@@ -4,7 +4,7 @@ export default function Proyectos() {
   return (
     <>
       {/* ===== Banner ===== */}
-      <section className="relative h-[340px] md:h-[420px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[340px] md:h-[420px] flex items-center justify-center overflow-hidden -mt-16 sm:-mt-[88px] md:-mt-[120px] lg:-mt-[136px]">
         <img src="/PROYECTOS ARRIBA.png" alt="Nuestros proyectos" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-dark/65" />
         <div className="relative text-center px-4">

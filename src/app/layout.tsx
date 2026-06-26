@@ -27,7 +27,7 @@ export default function Layout({
       <body className="antialiased">
         <div className="flex flex-col min-h-screen bg-white">
           <Navbar />
-          <main className="flex-grow">
+          <main className="flex-grow pt-16 sm:pt-[88px] md:pt-[120px] lg:pt-[136px]">
             {children}
           </main>
           <Footer />

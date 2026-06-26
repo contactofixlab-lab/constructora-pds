@@ -69,7 +69,7 @@ export default function Contacto() {
   return (
     <>
       {/* ===== Banner ===== */}
-      <section className="relative h-[280px] md:h-[340px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[280px] md:h-[340px] flex items-center justify-center overflow-hidden -mt-16 sm:-mt-[88px] md:-mt-[120px] lg:-mt-[136px]">
         <img src="/NOSOTROS ARRIBA.png" alt="Contacto" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-dark/70" />
         <div className="relative text-center px-4">

@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <section className="relative bg-dark text-white overflow-hidden">
+      <section className="relative bg-dark text-white overflow-hidden -mt-16 sm:-mt-[88px] md:-mt-[120px] lg:-mt-[136px]">
         <img src="/NOSOTROS ARRIBA.png" alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover object-center" />
         <div className="absolute inset-0 bg-dark/60" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-40 pb-24 md:pb-36 text-center">
