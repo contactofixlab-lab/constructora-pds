@@ -1,10 +1,18 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   const navItems = [
     { label: 'Inicio', href: '/' },
@@ -14,15 +22,24 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-white shadow-sm sticky top-0 z-50 border-b border-border">
+    <nav
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-white shadow-sm border-b border-border'
+          : 'bg-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-1">
+
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <img
               src="/30ee6226e_logo_puertas.png"
               alt="Constructora Puerta del Sol"
-              className="h-14 sm:h-20 md:h-28 lg:h-32 w-auto object-contain"
+              className={`h-14 sm:h-20 md:h-28 lg:h-32 w-auto object-contain transition-all duration-300 ${
+                !scrolled ? 'brightness-0 invert' : ''
+              }`}
             />
           </Link>
 
@@ -32,7 +49,11 @@ export default function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-text-title hover:text-accent transition-colors font-medium"
+                className={`font-medium transition-colors duration-300 ${
+                  scrolled
+                    ? 'text-text-title hover:text-accent'
+                    : 'text-white hover:text-accent'
+                }`}
               >
                 {item.label}
               </Link>
@@ -42,7 +63,9 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden p-2 hover:bg-background-alt rounded-lg text-text-title"
+            className={`md:hidden p-2 rounded-lg transition-colors ${
+              scrolled ? 'text-text-title hover:bg-background-alt' : 'text-white hover:bg-white/10'
+            }`}
             aria-label="Abrir menú"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -56,9 +79,9 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu — siempre fondo blanco para legibilidad */}
         {isOpen && (
-          <div className="md:hidden pb-4 space-y-1">
+          <div className="md:hidden pb-4 space-y-1 bg-white rounded-b-xl shadow-lg px-2">
             {navItems.map((item) => (
               <Link
                 key={item.href}
