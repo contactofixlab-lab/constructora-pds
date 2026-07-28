@@ -9,13 +9,21 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-10 mb-10">
           {/* Logo + descripción */}
-          <div>
+          <div className="relative overflow-hidden">
+            {/* Ícono decorativo de fondo */}
+            <img
+              src="/icon-edificio.png"
+              alt=""
+              aria-hidden="true"
+              className="absolute -bottom-8 -right-10 w-56 h-56 object-contain opacity-[0.06] pointer-events-none select-none"
+            />
+            {/* Logo en blanco */}
             <img
               src="/30ee6226e_logo_puertas.png"
               alt="Constructora Puerta del Sol"
-              className="h-36 w-auto object-contain mb-5"
+              className="relative h-36 w-auto object-contain mb-5 brightness-0 invert"
             />
-            <p className="text-text-inverse_secondary text-sm max-w-xs">
+            <p className="relative text-text-inverse_secondary text-sm max-w-xs">
               Desarrollamos proyectos de construcción de alto estándar, con calidad y compromiso en
               cada etapa.
             </p>
