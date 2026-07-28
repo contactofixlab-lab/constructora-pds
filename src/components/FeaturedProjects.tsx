@@ -36,7 +36,13 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
       <div className="bg-background-surface rounded-card border border-border shadow-card overflow-hidden grid md:grid-cols-2">
         {/* Imagen con flechas superpuestas */}
         <div className="relative h-72 md:h-[26rem] overflow-hidden group">
-          <img src={p.image} alt={p.nombre} className="w-full h-full object-cover" />
+          <img
+            key={index}
+            src={p.image}
+            alt={p.nombre}
+            className="w-full h-full object-cover"
+            style={{ animation: 'imgFadeIn 0.5s ease both' }}
+          />
 
           {/* Flecha izquierda */}
           <button

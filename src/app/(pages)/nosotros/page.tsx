@@ -1,4 +1,5 @@
 import { equipo } from '@/data/equipo';
+import FadeIn from '@/components/FadeIn';
 
 export default function Nosotros() {
   return (
@@ -49,9 +50,9 @@ export default function Nosotros() {
 
           {/* Socios Directores — siempre 2 en fila, tarjetas completas */}
           <div className="grid md:grid-cols-2 gap-8">
-            {equipo.slice(0, 2).map((m) => (
+            {equipo.slice(0, 2).map((m, i) => (
+              <FadeIn key={m.nombre} delay={i * 150}>
               <div
-                key={m.nombre}
                 className="bg-background-surface rounded-card border border-border p-6 md:p-8 hover:shadow-card transition-shadow"
               >
                 <div className="flex flex-col sm:flex-row gap-6">
@@ -89,15 +90,16 @@ export default function Nosotros() {
                   </a>
                 </div>
               </div>
+              </FadeIn>
             ))}
           </div>
 
           {/* Resto del equipo — 3 por fila, tarjetas compactas (aparece solo si hay más de 2 miembros) */}
           {equipo.length > 2 && (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8">
-              {equipo.slice(2).map((m) => (
+              {equipo.slice(2).map((m, i) => (
+                <FadeIn key={m.nombre} delay={i * 100}>
                 <div
-                  key={m.nombre}
                   className="bg-background-surface rounded-card border border-border p-6 hover:shadow-card transition-shadow flex flex-col items-center text-center"
                 >
                   <img
@@ -132,6 +134,7 @@ export default function Nosotros() {
                     </a>
                   </div>
                 </div>
+                </FadeIn>
               ))}
             </div>
           )}

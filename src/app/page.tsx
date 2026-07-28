@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import FeaturedProjects from '@/components/FeaturedProjects';
 import FadeIn from '@/components/FadeIn';
+import HeroSection from '@/components/HeroSection';
 import { razones, stats, servicios, socios } from '@/data/empresa';
 import { proyectos } from '@/data/proyectos';
 
@@ -8,33 +9,7 @@ export default function Home() {
   return (
     <>
       {/* ===== HERO ===== */}
-      <section className="relative bg-dark text-white overflow-hidden -mt-16 sm:-mt-[88px] md:-mt-[120px] lg:-mt-[136px]">
-        <img src="/NOSOTROS ARRIBA.png" alt="" aria-hidden="true" className="absolute inset-0 w-full h-full object-cover object-center" />
-        <div className="absolute inset-0 bg-dark/60" />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-40 pb-24 md:pb-36 text-center">
-          <h1
-            className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-text-inverse"
-            style={{ animation: 'fadeUp 0.9s ease both' }}
-          >
-            Construimos el futuro que <span className="text-accent">imaginas</span>
-          </h1>
-          <p
-            className="text-lg text-text-inverse_secondary mb-10 max-w-2xl mx-auto"
-            style={{ animation: 'fadeUp 0.9s ease 0.25s both' }}
-          >
-            Desarrollamos proyectos de construcción de alto estándar, con calidad,
-            cumplimiento y confianza en cada etapa del proceso.
-          </p>
-          <div style={{ animation: 'fadeUp 0.9s ease 0.45s both' }}>
-            <Link
-              href="/proyectos"
-              className="inline-block bg-accent hover:bg-accent-hover text-dark px-8 py-3.5 rounded-button font-semibold transition-colors"
-            >
-              Ver Proyectos
-            </Link>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
       {/* Onda entre hero y siguiente sección — fuera del overflow-hidden para evitar artifact */}
       <div style={{ marginTop: '-70px', lineHeight: 0, position: 'relative', zIndex: 10 }}>
         <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style={{ display: 'block' }} className="w-full">

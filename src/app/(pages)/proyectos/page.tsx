@@ -1,4 +1,6 @@
 import { proyectos } from '@/data/proyectos';
+import FadeIn from '@/components/FadeIn';
+import Card3D from '@/components/ui/Card3D';
 
 export default function Proyectos() {
   return (
@@ -25,12 +27,12 @@ export default function Proyectos() {
       <section className="py-section bg-background-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
           {proyectos.map((p, i) => (
+            <FadeIn key={p.nombre} delay={i * 150}>
             <div
-              key={p.nombre}
               className={`grid md:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? 'md:[&>*:first-child]:order-2' : ''}`}
             >
-              {/* Imagen */}
-              <div className="relative">
+              {/* Imagen con efecto 3D hover */}
+              <Card3D className="relative">
                 <img
                   src={p.image}
                   alt={p.nombre}
@@ -40,7 +42,7 @@ export default function Proyectos() {
                   <span className="bg-accent text-dark text-xs font-bold px-3 py-1 rounded-full">{p.status}</span>
                   <span className="bg-white/90 text-text-title text-xs font-bold px-3 py-1 rounded-full">{p.tipo}</span>
                 </div>
-              </div>
+              </Card3D>
 
               {/* Contenido */}
               <div>
@@ -76,6 +78,7 @@ export default function Proyectos() {
                 </div>
               </div>
             </div>
+            </FadeIn>
           ))}
         </div>
       </section>
