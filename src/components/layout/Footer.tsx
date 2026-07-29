@@ -10,19 +10,19 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-10 mb-10">
           {/* Logo + descripción con ícono decorativo detrás */}
           <div className="relative overflow-hidden">
-            {/* Ícono decorativo — desde el logo hasta la descripción */}
+            {/* Ícono decorativo — ancla top-left, cubre logo + descripción */}
             <img
               src="/icons/edificio.png"
               alt=""
               aria-hidden="true"
-              className="absolute inset-0 w-full h-full object-contain object-left opacity-[0.09] pointer-events-none select-none scale-125 -translate-x-4"
+              className="absolute top-0 left-0 w-72 h-96 object-contain object-top opacity-[0.10] pointer-events-none select-none"
             />
             <img
               src="/logos/puertas-del-sol.png"
               alt="Constructora Puerta del Sol"
-              className="relative h-36 w-auto object-contain mb-5 brightness-0 invert"
+              className="relative z-10 h-36 w-auto object-contain mb-5 brightness-0 invert"
             />
-            <p className="relative text-text-inverse_secondary text-sm max-w-xs">
+            <p className="relative z-10 text-text-inverse_secondary text-sm max-w-xs">
               Desarrollamos proyectos de construcción de alto estándar, con calidad y compromiso en
               cada etapa.
             </p>
