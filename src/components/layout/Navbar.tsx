@@ -35,7 +35,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <img
-              src="/30ee6226e_logo_puertas.png"
+              src="/logos/puertas-del-sol.png"
               alt="Constructora Puerta del Sol"
               className={`h-14 sm:h-20 md:h-28 lg:h-32 w-auto object-contain transition-all duration-300 ${
                 !scrolled ? 'brightness-0 invert' : ''

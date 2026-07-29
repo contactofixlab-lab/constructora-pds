@@ -25,7 +25,7 @@ export const proyectos = [
     departamentos: 105,
     bodegas: 48,
     estacionamientos: 62,
-    image: '/1c4a95389_Edificio__NeoYungay.jpg',
+    image: '/images/proyectos/neoyungay.jpg',
   },
   {
     id: 'boulevard-santa-rosa',
@@ -45,7 +45,7 @@ export const proyectos = [
     departamentos: 95,
     bodegas: 71,
     estacionamientos: 61,
-    image: '/boulevard-santa-rosa.jpg',
+    image: '/images/proyectos/boulevard.jpg',
   },
   {
     id: 'neobrisas',
@@ -64,7 +64,7 @@ export const proyectos = [
     departamentos: 108,
     bodegas: 110,
     estacionamientos: 56,
-    image: '/89f873117_FACHADA_NEOBRISAS.jpg',
+    image: '/images/proyectos/neobrisas.jpg',
   },
 ];
 

@@ -53,9 +53,11 @@ export const servicios = [
 // Socios comerciales — carrusel en home
 // src: nombre del archivo en public/ (incluye la barra inicial)
 export const socios = [
-  { nombre: 'Sodimac',   src: '/ee3be69ef_logo_sodimac.svg' },
-  { nombre: 'Iencinas',  src: '/iencinas logo.png' },
-  { nombre: 'NeoYungay', src: '/NEOYUNGAY NEGRO.png' },
-  { nombre: 'NeoBrisas', src: '/Logo-NeoBrisas1.png' },
-  { nombre: 'MK',        src: '/MK LOGO.png' },
+  { nombre: 'Sodimac',    src: '/logos/sodimac.svg' },
+  { nombre: 'Iencinas',   src: '/logos/iencinas.png' },
+  { nombre: 'NeoYungay',  src: '/logos/neoyungay.png' },
+  { nombre: 'NeoBrisas',  src: '/logos/neobrisas.png' },
+  { nombre: 'NeoEncina',  src: '/logos/neoencina.png' },
+  { nombre: 'Boulevard',  src: '/logos/boulevard.png' },
+  { nombre: 'MK',         src: '/logos/mk.png' },
 ];

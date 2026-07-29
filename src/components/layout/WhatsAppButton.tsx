@@ -17,7 +17,7 @@ export default function WhatsAppButton() {
       {/* Ícono principal */}
       <div className="relative">
         <img
-          src="/468ca5702_whatsapp_icono.png"
+          src="/icons/whatsapp.png"
           alt="WhatsApp"
           className="w-20 h-20 drop-shadow-2xl hover:scale-110 transition-transform duration-300"
         />

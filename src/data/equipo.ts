@@ -8,7 +8,7 @@ export const equipo = [
   {
     nombre: 'Benjamín Rabanales',
     rol: 'Socio Director',
-    foto: '/1db77f81e_benjamin.png',
+    foto: '/images/equipo/benjamin.png',
     descripcion:
       'Ingeniero Comercial, MBA. Gran experiencia en la industria bancaria y en diversos sectores comerciales en posiciones gerenciales, tanto para el país como en el extranjero. Últimos 8 años relacionado directamente con el sector inmobiliario, desempeñando funciones en Evaluación y Desarrollo de Proyectos.',
     highlights: [
@@ -22,7 +22,7 @@ export const equipo = [
   {
     nombre: 'Andrés Pizarro',
     rol: 'Socio Director',
-    foto: '/037526a5a_Andres-2.png',
+    foto: '/images/equipo/andres.png',
     descripcion:
       'Ingeniero Comercial de gran experiencia en la industria bancaria y en el sector inmobiliario, desempeñando funciones en gerencias de ventas, rentas inmobiliarias y gerencia general para diversas empresas. Últimos 15 años relacionado directamente con la industria inmobiliaria gerenciando proyectos emblemáticos.',
     highlights: [

@@ -20,7 +20,7 @@ export default function HeroSection() {
     <section className="relative bg-dark text-white overflow-hidden -mt-16 sm:-mt-[88px] md:-mt-[120px] lg:-mt-[136px]">
       <img
         ref={imgRef}
-        src="/NOSOTROS ARRIBA.png"
+        src="/images/heroes/hero-home.png"
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover object-center will-change-transform scale-110"

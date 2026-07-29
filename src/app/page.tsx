@@ -103,7 +103,7 @@ export default function Home() {
               <div className="relative mb-10 md:mb-0">
                 <div className="rounded-2xl h-[420px] md:h-[520px] overflow-hidden shadow-xl">
                   <img
-                    src="/NOSOTROS ARRIBA.png"
+                    src="/images/heroes/hero-home.png"
                     alt="Equipo Constructora Puerta del Sol"
                     className="w-full h-full object-cover object-top"
                   />

@@ -90,18 +90,42 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
         </div>
       </div>
 
-      {/* Dots de navegación */}
-      <div className="flex items-center justify-center gap-2 mt-6">
-        {projects.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setIndex(i)}
-            aria-label={`Ir al proyecto ${i + 1}`}
-            className={`h-2 rounded-full transition-all duration-300 ${
-              i === index ? 'w-8 bg-accent' : 'w-2 bg-border hover:bg-accent/40'
-            }`}
-          />
-        ))}
+      {/* Controles inferiores */}
+      <div className="flex items-center justify-center gap-5 mt-7">
+        <button
+          onClick={prev}
+          aria-label="Proyecto anterior"
+          className="group flex items-center gap-3 bg-primary hover:bg-accent border-2 border-primary hover:border-accent text-white hover:text-dark px-5 py-3 rounded-xl font-semibold transition-all duration-200 shadow-sm hover:shadow-md"
+        >
+          <svg className="w-5 h-5 transition-transform group-hover:-translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15.75 19.5 8.25 12l7.5-7.5" />
+          </svg>
+          <span className="text-sm uppercase tracking-wider">Anterior</span>
+        </button>
+
+        <div className="flex items-center gap-2">
+          {projects.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setIndex(i)}
+              aria-label={`Ir al proyecto ${i + 1}`}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === index ? 'w-8 bg-accent' : 'w-2 bg-border hover:bg-accent/40'
+              }`}
+            />
+          ))}
+        </div>
+
+        <button
+          onClick={next}
+          aria-label="Proyecto siguiente"
+          className="group flex items-center gap-3 bg-primary hover:bg-accent border-2 border-primary hover:border-accent text-white hover:text-dark px-5 py-3 rounded-xl font-semibold transition-all duration-200 shadow-sm hover:shadow-md"
+        >
+          <span className="text-sm uppercase tracking-wider">Siguiente</span>
+          <svg className="w-5 h-5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
       </div>
     </div>
   );

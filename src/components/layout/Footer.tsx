@@ -6,24 +6,23 @@ export default function Footer() {
 
   return (
     <footer className="bg-background-footer text-text-inverse pt-14 pb-8 relative overflow-hidden">
-      {/* Ícono decorativo grande — emerge desde esquina superior izquierda */}
-      <img
-        src="/icon-edificio.png"
-        alt=""
-        aria-hidden="true"
-        className="absolute -top-10 -left-14 w-[340px] h-[340px] object-contain opacity-[0.07] pointer-events-none select-none"
-      />
-
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-10 mb-10">
-          {/* Logo + descripción */}
-          <div>
+          {/* Logo + descripción con ícono decorativo detrás */}
+          <div className="relative overflow-hidden">
+            {/* Ícono decorativo — desde el logo hasta la descripción */}
             <img
-              src="/30ee6226e_logo_puertas.png"
-              alt="Constructora Puerta del Sol"
-              className="h-36 w-auto object-contain mb-5 brightness-0 invert"
+              src="/icons/edificio.png"
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-contain object-left opacity-[0.09] pointer-events-none select-none scale-125 -translate-x-4"
             />
-            <p className="text-text-inverse_secondary text-sm max-w-xs">
+            <img
+              src="/logos/puertas-del-sol.png"
+              alt="Constructora Puerta del Sol"
+              className="relative h-36 w-auto object-contain mb-5 brightness-0 invert"
+            />
+            <p className="relative text-text-inverse_secondary text-sm max-w-xs">
               Desarrollamos proyectos de construcción de alto estándar, con calidad y compromiso en
               cada etapa.
             </p>

@@ -151,7 +151,7 @@ export default function Contacto() {
     <>
       {/* ===== Banner ===== */}
       <section className="relative h-[280px] md:h-[340px] flex items-center justify-center overflow-hidden -mt-16 sm:-mt-[88px] md:-mt-[120px] lg:-mt-[136px]">
-        <img src="/NOSOTROS ARRIBA.png" alt="Contacto" className="absolute inset-0 w-full h-full object-cover" />
+        <img src="/images/heroes/hero-home.png" alt="Contacto" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-dark/70" />
         <div className="relative text-center px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">Contáctanos</h1>
@@ -217,7 +217,7 @@ export default function Contacto() {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-3 w-full bg-accent hover:bg-accent-hover text-dark font-bold py-3 rounded-xl transition-colors text-sm"
                   >
-                    <img src="/468ca5702_whatsapp_icono.png" alt="" className="w-5 h-5 object-contain" />
+                    <img src="/icons/whatsapp.png" alt="" className="w-5 h-5 object-contain" />
                     Escríbenos por WhatsApp
                   </a>
                   <p className="text-white/30 text-[11px] text-center mt-3">Constructora Puerta del Sol · Santiago, Chile</p>
