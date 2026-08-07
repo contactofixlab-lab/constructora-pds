@@ -33,12 +33,12 @@ export const razones = [
   },
 ];
 
-// Estadísticas — banda oscura en home
-// valor: texto que se muestra grande (puede incluir + o símbolos)
+// Estadísticas — cards en home (patrón Boulevard)
 export const stats = [
-  { valor: '+100.000', label: 'Metros cuadrados construidos' },
-  { valor: '6',        label: 'Alianzas' },
-  { valor: '+10',      label: 'Años de experiencia' },
+  { iconName: 'departamentos',    value: '94',  label: 'Departamentos',      color: '#84CC16', bgGradient: 'rgba(132, 204, 22, 0.08)' },
+  { iconName: 'estacionamiento',  value: '61',  label: 'Estacionamientos',   color: '#10b981', bgGradient: 'rgba(16, 185, 129, 0.08)' },
+  { iconName: 'bodegas',          value: '68',  label: 'Bodegas',            color: '#f59e0b', bgGradient: 'rgba(245, 158, 11, 0.08)' },
+  { iconName: 'departamentos',    value: '19',  label: 'Locales comerciales', color: '#3b82f6', bgGradient: 'rgba(59, 130, 246, 0.08)' },
 ];
 
 // Servicios — checklist en la sección "Construyendo con Pasión" (home)

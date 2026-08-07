@@ -2,7 +2,8 @@ import Link from 'next/link';
 import FeaturedProjects from '@/components/FeaturedProjects';
 import FadeIn from '@/components/FadeIn';
 import HeroSection from '@/components/HeroSection';
-import { razones, stats, servicios, socios } from '@/data/empresa';
+import StatsGrid from '@/components/StatsGrid';
+import { razones, servicios, socios } from '@/data/empresa';
 import { proyectos } from '@/data/proyectos';
 
 export default function Home() {
@@ -64,34 +65,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ===== STATS (banda oscura ondulada) ===== */}
-      <section className="relative bg-dark py-28">
-        {/* onda superior — 90px, curva profunda tipo lente */}
-        <div className="absolute top-0 left-0 w-full" style={{ lineHeight: 0 }}>
-          <svg viewBox="0 0 1440 90" preserveAspectRatio="none" style={{ display: 'block' }} className="w-full">
-            <path fill="#FFFFFF" d="M0,45 C480,90 960,0 1440,45 L1440,0 L0,0 Z" />
-          </svg>
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-10 text-center">
-            {stats.map((stat, i) => (
-              <FadeIn key={stat.label} delay={i * 150}>
-                <div className="text-4xl md:text-5xl font-bold text-accent mb-2">{stat.valor}</div>
-                <div className="text-text-inverse_secondary uppercase tracking-wide text-xs font-semibold">
-                  {stat.label}
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-
-        {/* onda inferior — 90px, curva profunda tipo lente */}
-        <div className="absolute bottom-0 left-0 w-full" style={{ lineHeight: 0 }}>
-          <svg viewBox="0 0 1440 90" preserveAspectRatio="none" style={{ display: 'block' }} className="w-full">
-            <path fill="#FFFFFF" d="M0,45 C480,0 960,90 1440,45 L1440,90 L0,90 Z" />
-          </svg>
-        </div>
+      {/* ===== STATS (cards con información de proyectos) ===== */}
+      <section className="py-section bg-background-surface">
+        <StatsGrid />
       </section>
 
       {/* ===== NOSOTROS (intro) ===== */}
