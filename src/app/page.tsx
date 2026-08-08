@@ -2,7 +2,6 @@ import Link from 'next/link';
 import FeaturedProjects from '@/components/FeaturedProjects';
 import FadeIn from '@/components/FadeIn';
 import HeroSection from '@/components/HeroSection';
-import StatsGrid from '@/components/StatsGrid';
 import { razones, servicios, socios } from '@/data/empresa';
 import { proyectos } from '@/data/proyectos';
 
@@ -63,11 +62,6 @@ export default function Home() {
             ))}
           </div>
         </div>
-      </section>
-
-      {/* ===== STATS (cards con información de proyectos) ===== */}
-      <section className="py-section bg-background-surface">
-        <StatsGrid />
       </section>
 
       {/* ===== NOSOTROS (intro) ===== */}
