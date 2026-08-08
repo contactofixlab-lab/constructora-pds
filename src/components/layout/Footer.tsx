@@ -6,19 +6,19 @@ export default function Footer() {
 
   return (
     <footer className="bg-background-footer text-text-inverse pt-14 pb-8 relative overflow-hidden">
-      {/* Ícono decorativo gigante y translúcido en esquina inferior derecha */}
+      {/* Logo decorativo gigante y translúcido en esquina inferior derecha */}
       <img
-        src="/icons/edificio.png"
+        src="/logos/puertas-del-sol.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none select-none absolute -right-32 -bottom-40 w-96 h-auto opacity-[0.08] rotate-12"
+        className="pointer-events-none select-none absolute -right-32 -bottom-40 w-96 h-auto opacity-[0.08] rotate-12 brightness-0 invert"
       />
-      {/* Ícono decorativo gigante y translúcido en esquina superior izquierda (solo desktop) */}
+      {/* Logo decorativo gigante y translúcido en esquina superior izquierda (solo desktop) */}
       <img
-        src="/icons/edificio.png"
+        src="/logos/puertas-del-sol.png"
         alt=""
         aria-hidden="true"
-        className="pointer-events-none select-none absolute -left-24 -top-32 w-64 h-auto opacity-[0.07] -rotate-12 hidden md:block"
+        className="pointer-events-none select-none absolute -left-24 -top-32 w-64 h-auto opacity-[0.07] -rotate-12 hidden md:block brightness-0 invert"
       />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-10 mb-10">
