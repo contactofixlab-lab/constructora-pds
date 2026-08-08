@@ -84,22 +84,22 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
 
             {/* Stats Cards */}
             <FadeIn direction="right">
-              <div className="space-y-3">
-                <div className="bg-white p-6 rounded-2xl border border-border shadow-sm">
-                  <p className="text-4xl font-bold text-accent mb-2">{proyecto.departamentos}</p>
-                  <p className="text-text-base font-semibold">Departamentos</p>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                <div className="bg-background-alt rounded-card border border-border py-3 text-center">
+                  <div className="text-xl font-bold text-accent-hover">{proyecto.departamentos}</div>
+                  <div className="text-text-secondary text-[11px] uppercase tracking-wide mt-1">Deptos</div>
                 </div>
-                <div className="bg-white p-6 rounded-2xl border border-border shadow-sm">
-                  <p className="text-4xl font-bold text-accent mb-2">{proyecto.bodegas}</p>
-                  <p className="text-text-base font-semibold">Bodegas</p>
+                <div className="bg-background-alt rounded-card border border-border py-3 text-center">
+                  <div className="text-xl font-bold text-accent-hover">{proyecto.bodegas}</div>
+                  <div className="text-text-secondary text-[11px] uppercase tracking-wide mt-1">Bodegas</div>
                 </div>
-                <div className="bg-white p-6 rounded-2xl border border-border shadow-sm">
-                  <p className="text-4xl font-bold text-accent mb-2">{proyecto.estacionamientos}</p>
-                  <p className="text-text-base font-semibold">Estacionamientos</p>
+                <div className="bg-background-alt rounded-card border border-border py-3 text-center">
+                  <div className="text-xl font-bold text-accent-hover">{proyecto.estacionamientos}</div>
+                  <div className="text-text-secondary text-[11px] uppercase tracking-wide mt-1">Estac.</div>
                 </div>
-                <div className="bg-white p-6 rounded-2xl border border-border shadow-sm">
-                  <p className="text-4xl font-bold text-accent mb-2">19</p>
-                  <p className="text-text-base font-semibold">Locales Comerciales</p>
+                <div className="bg-background-alt rounded-card border border-border py-3 text-center">
+                  <div className="text-xl font-bold text-accent-hover">19</div>
+                  <div className="text-text-secondary text-[11px] uppercase tracking-wide mt-1">Locales</div>
                 </div>
               </div>
             </FadeIn>
