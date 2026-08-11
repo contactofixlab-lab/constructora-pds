@@ -47,30 +47,19 @@ export default function Footer() {
       />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-10 mb-10">
-          {/* Logo + descripción con ícono decorativo detrás */}
+          {/* Logo mejorado y agrandado */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden"
+            className="flex justify-center md:justify-start"
           >
-            {/* Ícono decorativo — ancla top-left */}
-            <img
-              src="/icons/edificio.png"
-              alt=""
-              aria-hidden="true"
-              className="absolute top-0 left-0 w-72 h-96 object-contain object-top opacity-[0.05] pointer-events-none select-none"
-            />
             <motion.img
               src="/logos/puertas-del-sol.png"
               alt="Constructora Puerta del Sol"
-              whileHover={{ scale: 1.05 }}
-              className="relative z-10 h-36 w-auto object-contain mb-5 brightness-0 invert cursor-pointer transition-transform"
+              whileHover={{ scale: 1.08 }}
+              className="h-48 md:h-56 w-auto object-contain brightness-0 invert cursor-pointer transition-transform"
             />
-            <p className="relative z-10 text-text-inverse_secondary text-sm max-w-xs leading-relaxed">
-              Desarrollamos proyectos de construcción de alto estándar, con calidad y compromiso en
-              cada etapa.
-            </p>
           </motion.div>
 
           {/* Secciones */}
