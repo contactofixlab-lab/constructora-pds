@@ -84,22 +84,33 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
 
             {/* Stats Cards */}
             <FadeIn direction="right">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                <div className="bg-background-alt rounded-card border border-border py-3 text-center">
-                  <div className="text-xl font-bold text-accent-hover">{proyecto.departamentos}</div>
-                  <div className="text-text-secondary text-[11px] uppercase tracking-wide mt-1">Deptos</div>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {/* Departamentos */}
+                <div className="bg-dark rounded-2xl border border-white/10 py-6 px-4 text-center hover:border-accent/50 transition-all duration-300">
+                  <div className="text-2xl mb-3 flex justify-center">🏘️</div>
+                  <div className="text-3xl font-bold text-accent mb-2">{proyecto.departamentos}</div>
+                  <div className="text-text-inverse_secondary text-xs uppercase tracking-widest font-semibold">Departamentos</div>
                 </div>
-                <div className="bg-background-alt rounded-card border border-border py-3 text-center">
-                  <div className="text-xl font-bold text-accent-hover">{proyecto.bodegas}</div>
-                  <div className="text-text-secondary text-[11px] uppercase tracking-wide mt-1">Bodegas</div>
+
+                {/* Bodegas */}
+                <div className="bg-dark rounded-2xl border border-white/10 py-6 px-4 text-center hover:border-accent/50 transition-all duration-300">
+                  <div className="text-2xl mb-3 flex justify-center">📦</div>
+                  <div className="text-3xl font-bold text-accent mb-2">{proyecto.bodegas}</div>
+                  <div className="text-text-inverse_secondary text-xs uppercase tracking-widest font-semibold">Bodegas</div>
                 </div>
-                <div className="bg-background-alt rounded-card border border-border py-3 text-center">
-                  <div className="text-xl font-bold text-accent-hover">{proyecto.estacionamientos}</div>
-                  <div className="text-text-secondary text-[11px] uppercase tracking-wide mt-1">Estac.</div>
+
+                {/* Estacionamientos */}
+                <div className="bg-dark rounded-2xl border border-white/10 py-6 px-4 text-center hover:border-accent/50 transition-all duration-300">
+                  <div className="text-2xl mb-3 flex justify-center">🅿️</div>
+                  <div className="text-3xl font-bold text-accent mb-2">{proyecto.estacionamientos}</div>
+                  <div className="text-text-inverse_secondary text-xs uppercase tracking-widest font-semibold">Estacionamientos</div>
                 </div>
-                <div className="bg-background-alt rounded-card border border-border py-3 text-center">
-                  <div className="text-xl font-bold text-accent-hover">19</div>
-                  <div className="text-text-secondary text-[11px] uppercase tracking-wide mt-1">Locales</div>
+
+                {/* Locales Comerciales */}
+                <div className="bg-dark rounded-2xl border border-white/10 py-6 px-4 text-center hover:border-accent/50 transition-all duration-300">
+                  <div className="text-2xl mb-3 flex justify-center">🏪</div>
+                  <div className="text-3xl font-bold text-accent mb-2">19</div>
+                  <div className="text-text-inverse_secondary text-xs uppercase tracking-widest font-semibold">Locales Comerciales</div>
                 </div>
               </div>
             </FadeIn>
