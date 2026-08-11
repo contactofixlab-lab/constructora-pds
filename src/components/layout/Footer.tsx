@@ -15,35 +15,25 @@ export default function Footer() {
         <div className="absolute bottom-0 right-1/4 w-80 h-80 bg-accent/3 rounded-full blur-3xl" />
       </div>
 
-      {/* Logo decorativo gigante y translúcido en esquina inferior derecha */}
-      <motion.div
+      {/* Ícono decorativo del edificio en esquina inferior derecha */}
+      <motion.img
+        src="/icons/pds-building-icon.svg"
+        alt=""
+        aria-hidden="true"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 0.15 }}
+        transition={{ duration: 1.5, delay: 0.3 }}
+        className="pointer-events-none select-none absolute -right-32 -bottom-40 w-96 h-auto rotate-12 brightness-0 invert"
+      />
+      {/* Ícono decorativo del edificio en esquina superior izquierda (solo desktop) */}
+      <motion.img
+        src="/icons/pds-building-icon.svg"
+        alt=""
+        aria-hidden="true"
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.12 }}
-        transition={{ duration: 1.5, delay: 0.3 }}
-        className="pointer-events-none select-none absolute -right-40 -bottom-48 w-[500px] h-[500px] hidden sm:block"
-        style={{
-          backgroundImage: 'url(/logos/puertas-del-sol.png)',
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          filter: 'brightness(1.2) invert(1) drop-shadow(0 0 40px rgba(132, 204, 22, 0.1))',
-          transform: 'rotate(12deg) scale(1.1)',
-        }}
-      />
-      {/* Logo decorativo gigante y translúcido en esquina superior izquierda (solo desktop) */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.1 }}
         transition={{ duration: 1.5, delay: 0.5 }}
-        className="pointer-events-none select-none absolute -left-32 -top-40 w-80 h-80 hidden md:block"
-        style={{
-          backgroundImage: 'url(/logos/puertas-del-sol.png)',
-          backgroundSize: 'contain',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          filter: 'brightness(1.2) invert(1) drop-shadow(0 0 30px rgba(132, 204, 22, 0.05))',
-          transform: 'rotate(-12deg) scale(0.9)',
-        }}
+        className="pointer-events-none select-none absolute -left-24 -top-32 w-64 h-auto -rotate-12 hidden md:block brightness-0 invert"
       />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-10 mb-10">
