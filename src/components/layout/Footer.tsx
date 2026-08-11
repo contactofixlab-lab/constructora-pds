@@ -21,9 +21,9 @@ export default function Footer() {
         alt=""
         aria-hidden="true"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.15 }}
+        animate={{ opacity: 0.25 }}
         transition={{ duration: 1.5, delay: 0.3 }}
-        className="pointer-events-none select-none absolute -right-32 -bottom-40 w-96 h-auto rotate-12 brightness-0 invert"
+        className="pointer-events-none select-none absolute -right-48 -bottom-56 w-[600px] h-auto rotate-12 brightness-0 invert"
       />
       {/* Ícono decorativo del edificio en esquina superior izquierda (solo desktop) */}
       <motion.img
@@ -31,9 +31,9 @@ export default function Footer() {
         alt=""
         aria-hidden="true"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 0.12 }}
+        animate={{ opacity: 0.2 }}
         transition={{ duration: 1.5, delay: 0.5 }}
-        className="pointer-events-none select-none absolute -left-24 -top-32 w-64 h-auto -rotate-12 hidden md:block brightness-0 invert"
+        className="pointer-events-none select-none absolute -left-32 -top-40 w-96 h-auto -rotate-12 hidden md:block brightness-0 invert"
       />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-10 mb-10">
