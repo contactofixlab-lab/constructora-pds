@@ -2,8 +2,9 @@ import Link from 'next/link';
 import { proyectos } from '@/data/proyectos';
 import FadeIn from '@/components/FadeIn';
 
-export default function ProjectDetail({ params }: { params: { id: string } }) {
-  const proyecto = proyectos.find((p) => p.id === params.id);
+export default async function ProjectDetail({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const proyecto = proyectos.find((p) => p.id === id);
 
   if (!proyecto) {
     return (
