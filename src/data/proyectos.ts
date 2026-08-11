@@ -26,6 +26,7 @@ export const proyectos = [
     bodegas: 48,
     estacionamientos: 62,
     image: '/images/proyectos/neoyungay.jpg',
+    urlProyecto: 'https://neourbe.cl/proyectos-inmobiliarios/neoyungay',
   },
   {
     id: 'boulevard-santa-rosa',
@@ -46,6 +47,7 @@ export const proyectos = [
     bodegas: 68,
     estacionamientos: 61,
     image: '/images/proyectos/boulevard.jpg',
+    urlProyecto: 'https://boulevardsantarosa.cl',
   },
   {
     id: 'neobrisas',
@@ -65,7 +67,10 @@ export const proyectos = [
     bodegas: 110,
     estacionamientos: 56,
     image: '/images/proyectos/neobrisas.jpg',
+    urlProyecto: 'https://neourbe.cl/proyectos-inmobiliarios/neobrisas',
   },
 ];
 
-export type Proyecto = typeof proyectos[number];
+export type Proyecto = typeof proyectos[number] & {
+  urlProyecto?: string;
+};

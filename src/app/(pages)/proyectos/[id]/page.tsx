@@ -85,7 +85,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
 
             {/* Stats Cards */}
             <FadeIn direction="right">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
                 {/* Departamentos */}
                 <div className="bg-dark rounded-2xl border border-white/10 py-6 px-4 text-center hover:border-accent/50 transition-all duration-300">
                   <div className="text-2xl mb-3 flex justify-center">🏘️</div>
@@ -114,6 +114,23 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                   <div className="text-text-inverse_secondary text-xs uppercase tracking-widest font-semibold">Locales Comerciales</div>
                 </div>
               </div>
+
+              {/* Botón Ir a página del proyecto */}
+              {proyecto.urlProyecto && (
+                <div className="flex justify-center md:justify-start">
+                  <a
+                    href={proyecto.urlProyecto}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-dark px-6 py-3 rounded-button font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                  >
+                    Ver página del proyecto
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                  </a>
+                </div>
+              )}
             </FadeIn>
           </div>
         </div>
