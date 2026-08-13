@@ -51,7 +51,7 @@ export default function Proyectos() {
                     rel="noopener noreferrer"
                     className="inline-block w-full mt-4 bg-accent hover:bg-accent-hover text-dark px-6 py-3 rounded-button font-semibold text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
                   >
-                    Ver más
+                    Ver mas {'>>'}
                   </a>
                 )}
               </div>
