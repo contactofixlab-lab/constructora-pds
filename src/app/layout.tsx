@@ -16,10 +16,7 @@ export const metadata: Metadata = {
   description: 'Constructora PDS - Desarrollando proyectos de calidad con compromiso, profesionalismo y experiencia.',
   keywords: 'construcción, proyectos, inmobiliarios, constructora',
   icons: {
-    icon: [
-      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
-    ],
-    apple: '/icon.png',
+    icon: '/favicon.svg',
   },
 };
 
