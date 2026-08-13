@@ -32,17 +32,29 @@ export default function Proyectos() {
               className={`grid md:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? 'md:[&>*:first-child]:order-2' : ''}`}
             >
               {/* Imagen con efecto 3D hover */}
-              <Card3D className="relative">
-                <img
-                  src={p.image}
-                  alt={p.nombre}
-                  className="w-full h-72 md:h-96 object-cover rounded-card shadow-card"
-                />
-                <div className="absolute top-4 left-4 flex gap-2">
-                  <span className="bg-accent text-dark text-xs font-bold px-3 py-1 rounded-full">{p.status}</span>
-                  <span className="bg-white/90 text-text-title text-xs font-bold px-3 py-1 rounded-full">{p.tipo}</span>
-                </div>
-              </Card3D>
+              <div>
+                <Card3D className="relative">
+                  <img
+                    src={p.image}
+                    alt={p.nombre}
+                    className="w-full h-72 md:h-96 object-cover rounded-card shadow-card"
+                  />
+                  <div className="absolute top-4 left-4 flex gap-2">
+                    <span className="bg-accent text-dark text-xs font-bold px-3 py-1 rounded-full">{p.status}</span>
+                    <span className="bg-white/90 text-text-title text-xs font-bold px-3 py-1 rounded-full">{p.tipo}</span>
+                  </div>
+                </Card3D>
+                {p.urlProyecto && (
+                  <a
+                    href={p.urlProyecto}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block w-full mt-4 bg-accent hover:bg-accent-hover text-dark px-6 py-3 rounded-button font-semibold text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                  >
+                    Ver más
+                  </a>
+                )}
+              </div>
 
               {/* Contenido */}
               <div>
