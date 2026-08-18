@@ -1,9 +1,10 @@
 import Link from 'next/link';
-import { proyectos } from '@/data/proyectos';
+import { getProyectos } from '@/lib/proyectos';
 import FadeIn from '@/components/FadeIn';
 
 export default async function ProjectDetail({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
+  const proyectos = await getProyectos();
   const proyecto = proyectos.find((p) => p.id === id);
 
   if (!proyecto) {

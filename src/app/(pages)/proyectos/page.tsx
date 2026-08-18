@@ -1,8 +1,10 @@
-import { proyectos } from '@/data/proyectos';
+import { getProyectos } from '@/lib/proyectos';
 import FadeIn from '@/components/FadeIn';
 import Card3D from '@/components/ui/Card3D';
+import AnimatedCard from '@/components/AnimatedCard';
 
-export default function Proyectos() {
+export default async function Proyectos() {
+  const proyectos = await getProyectos();
   return (
     <>
       {/* ===== Banner ===== */}
@@ -27,7 +29,7 @@ export default function Proyectos() {
       <section className="py-section bg-background-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
           {proyectos.map((p, i) => (
-            <FadeIn key={p.nombre} delay={i * 150}>
+            <AnimatedCard key={p.nombre} delay={i}>
             <div
               className={`grid md:grid-cols-2 gap-10 items-center ${i % 2 === 1 ? 'md:[&>*:first-child]:order-2' : ''}`}
             >
@@ -44,9 +46,9 @@ export default function Proyectos() {
                     <span className="bg-white/90 text-text-title text-xs font-bold px-3 py-1 rounded-full">{p.tipo}</span>
                   </div>
                 </Card3D>
-                {p.urlProyecto && (
+                {p.urlproyecto && (
                   <a
-                    href={p.urlProyecto}
+                    href={p.urlproyecto}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block w-full mt-4 bg-accent hover:bg-accent-hover text-dark px-6 py-3 rounded-button font-semibold text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
@@ -91,7 +93,7 @@ export default function Proyectos() {
                 </div>
               </div>
             </div>
-            </FadeIn>
+            </AnimatedCard>
           ))}
         </div>
       </section>

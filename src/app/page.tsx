@@ -3,9 +3,10 @@ import FeaturedProjects from '@/components/FeaturedProjects';
 import FadeIn from '@/components/FadeIn';
 import HeroSection from '@/components/HeroSection';
 import { razones, servicios, socios } from '@/data/empresa';
-import { proyectos } from '@/data/proyectos';
+import { getProyectos } from '@/lib/proyectos';
 
-export default function Home() {
+export default async function Home() {
+  const proyectos = await getProyectos();
   return (
     <>
       {/* ===== HERO ===== */}
