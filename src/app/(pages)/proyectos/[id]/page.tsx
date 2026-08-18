@@ -72,7 +72,7 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
                 </p>
                 <h3 className="text-2xl font-bold mb-4 text-text-title">Características</h3>
                 <ul className="space-y-3">
-                  {proyecto.highlights.map((highlight, i) => (
+                  {(proyecto.highlights ?? []).map((highlight, i) => (
                     <li key={i} className="flex items-start gap-3 text-text-base">
                       <svg className="w-6 h-6 text-accent flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m4.5 12.75 6 6 9-13.5" />
@@ -117,10 +117,10 @@ export default async function ProjectDetail({ params }: { params: Promise<{ id: 
               </div>
 
               {/* Botón Ir a página del proyecto */}
-              {proyecto.urlProyecto && (
+              {proyecto.urlproyecto && (
                 <div className="flex justify-center md:justify-start">
                   <a
-                    href={proyecto.urlProyecto}
+                    href={proyecto.urlproyecto}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-dark px-6 py-3 rounded-button font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-1"

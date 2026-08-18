@@ -66,7 +66,7 @@ export default async function Proyectos() {
                 <p className="text-text-base mb-6">{p.descripcion}</p>
 
                 <ul className="space-y-2 mb-8">
-                  {p.highlights.map((h) => (
+                  {(p.highlights ?? []).map((h) => (
                     <li key={h} className="flex items-center gap-3 text-sm text-text-base">
                       <span className="flex-shrink-0 w-5 h-5 rounded-full bg-accent-soft flex items-center justify-center">
                         <svg className="w-3 h-3 text-accent-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
