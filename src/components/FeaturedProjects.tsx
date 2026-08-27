@@ -25,9 +25,9 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
   const p = projects[index];
 
   const stats = [
-    { n: p.departamentos, l: 'Deptos' },
-    { n: p.bodegas, l: 'Bodegas' },
-    { n: p.estacionamientos, l: 'Estac.' },
+    { n: p.departamentos, l: 'Deptos', emoji: '🏘️' },
+    { n: p.bodegas, l: 'Bodegas', emoji: '📦' },
+    { n: p.estacionamientos, l: 'Estac.', emoji: '🅿️' },
   ];
 
   return (
@@ -81,9 +81,10 @@ export default function FeaturedProjects({ projects }: { projects: Project[] }) 
           <p className="text-text-base mb-6">{p.descripcion}</p>
           <div className="grid grid-cols-3 gap-3">
             {stats.map((s) => (
-              <div key={s.l} className="bg-background-alt rounded-card border border-border py-3 text-center">
-                <div className="text-xl font-bold text-accent-hover">{s.n}</div>
-                <div className="text-text-secondary text-[11px] uppercase tracking-wide mt-1">{s.l}</div>
+              <div key={s.l} className="bg-dark rounded-card border border-white/10 py-4 px-3 text-center hover:border-accent/50 transition-all duration-300">
+                <div className="text-lg mb-2 flex justify-center">{s.emoji}</div>
+                <div className="text-2xl font-bold text-accent mb-1">{s.n}</div>
+                <div className="text-text-inverse_secondary text-xs uppercase tracking-wide">{s.l}</div>
               </div>
             ))}
           </div>
