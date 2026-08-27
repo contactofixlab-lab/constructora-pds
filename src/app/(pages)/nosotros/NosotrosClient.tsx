@@ -1,8 +1,7 @@
 'use client';
 
-import { equipo } from '@/data/equipo';
-import FadeIn from '@/components/FadeIn';
 import { motion } from 'framer-motion';
+import type { MiembroEquipo } from '@/lib/equipo';
 
 interface NosotrosClientProps {
   bannerImagen: string;
@@ -10,6 +9,7 @@ interface NosotrosClientProps {
   bannerSubtitulo: string;
   directivaImagen: string;
   directivaParrafo: string;
+  equipo: MiembroEquipo[];
 }
 
 export default function NosotrosClient({
@@ -18,6 +18,7 @@ export default function NosotrosClient({
   bannerSubtitulo,
   directivaImagen,
   directivaParrafo,
+  equipo,
 }: NosotrosClientProps) {
   const containerVariants: any = {
     hidden: { opacity: 0 },
