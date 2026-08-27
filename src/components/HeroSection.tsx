@@ -3,7 +3,19 @@
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  imagen?: string;
+  titulo?: string;
+  subtitulo?: string;
+  boton?: string;
+}
+
+export default function HeroSection({
+  imagen = '/images/heroes/hero-home.png',
+  titulo = 'Construimos el futuro que imaginas',
+  subtitulo = 'Desarrollamos proyectos de construcción de alto estándar, con calidad, cumplimiento y confianza en cada etapa del proceso.',
+  boton = 'Ver Proyectos',
+}: HeroSectionProps) {
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
@@ -20,7 +32,7 @@ export default function HeroSection() {
     <section className="relative bg-dark text-white overflow-hidden -mt-16 sm:-mt-[88px] md:-mt-[120px] lg:-mt-[136px]">
       <img
         ref={imgRef}
-        src="/images/heroes/hero-home.png"
+        src={imagen}
         alt=""
         aria-hidden="true"
         className="absolute inset-0 w-full h-full object-cover object-center will-change-transform scale-110"
@@ -32,21 +44,20 @@ export default function HeroSection() {
           className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-text-inverse"
           style={{ animation: 'fadeUp 0.9s ease both' }}
         >
-          Construimos el futuro que <span className="text-accent">imaginas</span>
+          {titulo}
         </h1>
         <p
           className="text-lg text-text-inverse_secondary mb-10 max-w-2xl mx-auto"
           style={{ animation: 'fadeUp 0.9s ease 0.25s both' }}
         >
-          Desarrollamos proyectos de construcción de alto estándar, con calidad,
-          cumplimiento y confianza en cada etapa del proceso.
+          {subtitulo}
         </p>
         <div style={{ animation: 'fadeUp 0.9s ease 0.45s both' }}>
           <Link
             href="/proyectos"
             className="inline-block bg-accent hover:bg-accent-hover text-dark px-8 py-3.5 rounded-button font-semibold transition-colors"
           >
-            Ver Proyectos
+            {boton}
           </Link>
         </div>
       </div>

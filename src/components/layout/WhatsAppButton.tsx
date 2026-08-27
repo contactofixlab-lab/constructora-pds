@@ -1,9 +1,11 @@
 import Link from 'next/link';
 
-export default function WhatsAppButton() {
+export default function WhatsAppButton({
+  whatsapp = 'https://wa.me/56979877883?text=Hola,%20me%20gustaría%20más%20información%20sobre%20sus%20proyectos.',
+}: { whatsapp?: string }) {
   return (
     <Link
-      href="https://wa.me/56979877883?text=Hola,%20me%20gustaría%20más%20información%20sobre%20sus%20proyectos."
+      href={whatsapp}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Contáctanos por WhatsApp"

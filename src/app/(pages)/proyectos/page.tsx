@@ -1,20 +1,21 @@
 import { getProyectos } from '@/lib/proyectos';
+import { getTextos, t } from '@/lib/textos';
 import FadeIn from '@/components/FadeIn';
 import Card3D from '@/components/ui/Card3D';
 import AnimatedCard from '@/components/AnimatedCard';
 
 export default async function Proyectos() {
-  const proyectos = await getProyectos();
+  const [proyectos, textos] = await Promise.all([getProyectos(), getTextos()]);
   return (
     <>
       {/* ===== Banner ===== */}
       <section className="relative h-[340px] md:h-[420px] flex items-center justify-center overflow-hidden -mt-16 sm:-mt-[88px] md:-mt-[120px] lg:-mt-[136px]">
-        <img src="/images/heroes/banner-proyectos.png" alt="Nuestros proyectos" className="absolute inset-0 w-full h-full object-cover" />
+        <img src={t(textos, 'proyectos-banner-imagen', '/images/heroes/banner-proyectos.png')} alt="Nuestros proyectos" className="absolute inset-0 w-full h-full object-cover" />
         <div className="absolute inset-0 bg-dark/65" />
         <div className="relative text-center px-4">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">Nuestros Proyectos</h1>
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">{t(textos, 'proyectos-banner-titulo', 'Nuestros Proyectos')}</h1>
           <p className="text-lg text-text-inverse_secondary max-w-2xl mx-auto">
-            Desarrollos inmobiliarios que combinan calidad, ubicación y diseño
+            {t(textos, 'proyectos-banner-subtitulo', 'Desarrollos inmobiliarios que combinan calidad, ubicación y diseño')}
           </p>
         </div>
       </section>

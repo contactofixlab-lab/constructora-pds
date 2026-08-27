@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
 
-export default function Navbar() {
+export default function Navbar({ logo = '/logos/puertas-del-sol.png' }: { logo?: string }) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -35,7 +35,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <img
-              src="/logos/puertas-del-sol.png"
+              src={logo}
               alt="Constructora Puerta del Sol"
               className={`h-14 sm:h-20 md:h-28 lg:h-32 w-auto object-contain transition-all duration-300 ${
                 !scrolled ? 'brightness-0 invert' : ''

@@ -1,11 +1,22 @@
 'use client';
 
 import Link from 'next/link';
-import { contactoInfo } from '@/data/contacto';
+import { contactoInfo as contactoInfoDefault } from '@/data/contacto';
 import { motion } from 'framer-motion';
 
-export default function Footer() {
+interface FooterProps {
+  logo?: string;
+  copyright?: string;
+  contacto?: typeof contactoInfoDefault;
+}
+
+export default function Footer({
+  logo = '/logos/puertas-del-sol.png',
+  copyright = 'Constructora Puerta del Sol. Todos los derechos reservados.',
+  contacto = contactoInfoDefault,
+}: FooterProps) {
   const currentYear = new Date().getFullYear();
+  const contactoInfo = contacto;
 
   return (
     <footer className="bg-gradient-to-b from-background-footer via-background-footer to-dark text-text-inverse pt-14 pb-8 relative overflow-hidden">
@@ -45,7 +56,7 @@ export default function Footer() {
             className="flex justify-center md:justify-start"
           >
             <motion.img
-              src="/logos/puertas-del-sol.png"
+              src={logo}
               alt="Constructora Puerta del Sol"
               whileHover={{ scale: 1.08 }}
               className="h-48 md:h-56 w-auto object-contain brightness-0 invert cursor-pointer transition-transform"
@@ -125,7 +136,7 @@ export default function Footer() {
           className="border-t border-white/20 pt-6 text-center md:text-left"
         >
           <p className="text-text-inverse_secondary text-sm">
-            &copy; {currentYear} Constructora Puerta del Sol. Todos los derechos reservados.
+            &copy; {currentYear} {copyright}
           </p>
         </motion.div>
       </div>

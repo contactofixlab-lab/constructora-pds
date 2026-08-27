@@ -4,13 +4,31 @@ import FadeIn from '@/components/FadeIn';
 import HeroSection from '@/components/HeroSection';
 import { razones, servicios, socios } from '@/data/empresa';
 import { getProyectos } from '@/lib/proyectos';
+import { getTextos, t } from '@/lib/textos';
 
 export default async function Home() {
-  const proyectos = await getProyectos();
+  const [proyectos, textos] = await Promise.all([getProyectos(), getTextos()]);
+
+  const razonesResueltas = razones.map((razon, i) => ({
+    ...razon,
+    titulo: t(textos, `inicio-razon${i + 1}-titulo`, razon.titulo),
+    texto: t(textos, `inicio-razon${i + 1}-texto`, razon.texto),
+  }));
+
+  const serviciosResueltos = t(textos, 'inicio-nosotros-servicios', servicios.join('\n'))
+    .split('\n')
+    .map((s) => s.trim())
+    .filter(Boolean);
+
   return (
     <>
       {/* ===== HERO ===== */}
-      <HeroSection />
+      <HeroSection
+        imagen={t(textos, 'inicio-hero-imagen', '/images/heroes/hero-home.png')}
+        titulo={t(textos, 'inicio-hero-titulo', 'Construimos el futuro que imaginas')}
+        subtitulo={t(textos, 'inicio-hero-subtitulo', 'Desarrollamos proyectos de construcción de alto estándar, con calidad, cumplimiento y confianza en cada etapa del proceso.')}
+        boton={t(textos, 'inicio-hero-boton', 'Ver Proyectos')}
+      />
       {/* Onda entre hero y siguiente sección — fuera del overflow-hidden para evitar artifact */}
       <div style={{ marginTop: '-70px', lineHeight: 0, position: 'relative', zIndex: 10 }}>
         <svg viewBox="0 0 1440 70" preserveAspectRatio="none" style={{ display: 'block' }} className="w-full">
@@ -28,7 +46,7 @@ export default async function Home() {
             <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-4" />
           </div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {razones.map((razon, i) => (
+            {razonesResueltas.map((razon, i) => (
               <FadeIn key={razon.titulo} delay={i * 120} className="h-full">
                 <div className="group relative overflow-hidden rounded-2xl border border-border bg-white p-8 flex flex-col hover:shadow-2xl hover:-translate-y-4 transition-all duration-500 cursor-default min-h-[220px] sm:min-h-[340px] h-full">
                   {/* Línea superior animada */}
@@ -74,15 +92,15 @@ export default async function Home() {
               <div className="relative mb-10 md:mb-0">
                 <div className="rounded-2xl h-[420px] md:h-[520px] overflow-hidden shadow-xl">
                   <img
-                    src="/images/heroes/hero-home.png"
+                    src={t(textos, 'inicio-nosotros-imagen', '/images/heroes/hero-home.png')}
                     alt="Equipo Constructora Puerta del Sol"
                     className="w-full h-full object-cover object-top"
                   />
                 </div>
                 <div className="absolute -bottom-6 -left-2 md:left-6 bg-accent text-dark rounded-card px-6 py-4 shadow-card">
-                  <div className="text-3xl font-bold leading-none">+10</div>
+                  <div className="text-3xl font-bold leading-none">{t(textos, 'inicio-nosotros-badge-numero', '+10')}</div>
                   <div className="text-xs font-semibold uppercase tracking-wide mt-1">
-                    Años de experiencia
+                    {t(textos, 'inicio-nosotros-badge-texto', 'Años de experiencia')}
                   </div>
                 </div>
               </div>
@@ -91,15 +109,13 @@ export default async function Home() {
             {/* Texto + checklist */}
             <FadeIn direction="right">
               <h2 className="text-3xl md:text-5xl font-bold mb-5 text-text-title leading-tight">
-                Construyendo con <span className="text-accent">Pasión</span> y Excelencia
+                {t(textos, 'inicio-nosotros-titulo', 'Construyendo con Pasión y Excelencia')}
               </h2>
               <p className="text-text-base text-lg mb-7 leading-relaxed">
-                Somos una constructora especializada en el desarrollo de proyectos residenciales y
-                comerciales. Nos enfocamos en ser el brazo constructor de cada proyecto, aportando
-                calidad y compromiso en todas sus etapas.
+                {t(textos, 'inicio-nosotros-parrafo', 'Somos una constructora especializada en el desarrollo de proyectos residenciales y comerciales. Nos enfocamos en ser el brazo constructor de cada proyecto, aportando calidad y compromiso en todas sus etapas.')}
               </p>
               <div className="grid sm:grid-cols-2 gap-x-6 gap-y-5 mb-10">
-                {servicios.map((servicio) => (
+                {serviciosResueltos.map((servicio) => (
                   <div key={servicio} className="flex items-center gap-3">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-accent-soft flex items-center justify-center">
                       <svg className="w-4 h-4 text-accent-hover" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -114,7 +130,7 @@ export default async function Home() {
                 href="/nosotros"
                 className="inline-flex items-center gap-2 bg-dark hover:bg-primary text-white px-6 py-3 rounded-button font-semibold transition-colors"
               >
-                Conoce a Nuestro Equipo
+                {t(textos, 'inicio-nosotros-boton', 'Conoce a Nuestro Equipo')}
                 <span>→</span>
               </Link>
             </FadeIn>
@@ -132,7 +148,7 @@ export default async function Home() {
         </div>
         <div className="text-center mb-10 px-4">
           <h2 className="text-3xl md:text-4xl font-bold text-text-title inline-block">
-            Socios <span className="text-accent-hover">Comerciales</span>
+            {t(textos, 'inicio-socios-titulo', 'Socios Comerciales')}
           </h2>
           <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-4" />
         </div>
@@ -165,7 +181,7 @@ export default async function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold text-text-title inline-block">
-              Nuestros <span className="text-accent">Proyectos</span>
+              {t(textos, 'inicio-proyectos-titulo', 'Nuestros Proyectos')}
             </h2>
             <div className="w-16 h-1 bg-accent rounded-full mx-auto mt-4" />
           </div>
@@ -177,7 +193,7 @@ export default async function Home() {
               href="/proyectos"
               className="inline-block bg-dark hover:bg-primary text-white px-8 py-3 rounded-button font-semibold transition-colors"
             >
-              Ver Todos los Proyectos
+              {t(textos, 'inicio-proyectos-boton', 'Ver Todos los Proyectos')}
             </Link>
           </div>
         </div>
