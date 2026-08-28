@@ -15,6 +15,12 @@ const inter = Inter({
   display: 'swap',
 });
 
+// Todo el sitio lee contenido directo de la base de datos (proyectos, equipo,
+// textos, contacto) sin pasar por fetch() con revalidación — sin esto, Next.js
+// genera las páginas como estáticas en el build y Vercel sirve esa foto
+// congelada para siempre, ignorando cualquier cambio hecho después en el admin.
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
   title: 'Constructora PDS | Proyectos Inmobiliarios de Calidad',
   description: 'Constructora PDS - Desarrollando proyectos de calidad con compromiso, profesionalismo y experiencia.',
