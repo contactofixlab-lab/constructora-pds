@@ -29,7 +29,7 @@ const pool = new Pool({
 export async function getProyectos(): Promise<Proyecto[]> {
   try {
     const client = await pool.connect();
-    const result = await client.query('SELECT * FROM proyectos ORDER BY createdAt DESC');
+    const result = await client.query('SELECT * FROM proyectos ORDER BY orden ASC, createdAt DESC');
     client.release();
     return result.rows;
   } catch (error) {
